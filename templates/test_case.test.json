@@ -1,0 +1,32 @@
+{
+  "_comment": "This is a template for a test case in the test suite. Please fill in the required parameters before running the evaluation.",
+  "test_case_id": "unique_test_case_id",
+  "category_comment": "Category of the test case. This helps in organizing and filtering test cases in the report. Default is 'Other'.",
+  "category": "A descriptive category",
+  "description": "A brief description of the test case. This will appear in the test suite report.",
+  "target_agent_comment": "The agent that will receive the query and process it.",
+  "target_agent": "OrchestratorAgent",
+  "query": "The query that will be sent to the target agent.",
+  "artifacts_comment": "List of artifacts loaded by the system before running the test case. These artifacts can be used by the agent to generate a response.",
+  "artifacts": [
+    {
+      "type": "file",
+      "path": "path/to/file.txt"
+    }
+  ],
+  "wait_time_comment": "Time in seconds to wait for the agent to respond before considering the test case as failed. Default is 60 seconds.",
+  "wait_time": 120,
+  "evaluation_comment": "Evaluation criteria for the test case. This section defines what is expected from the agent's response.",
+  "evaluation": {
+    "expected_tools_comment": "List of tools that the agents should use to generate the response. This is used by the 'tool_match' and the 'llm_evaluator' evaluations.",
+    "expected_tools": [
+      "tool1",
+      "tool2",
+      "tool3"
+    ],
+    "expected_response_comment": "The expected final response from the agent. This is used by the 'response_match' and the 'llm_evaluator' evaluations.",
+    "expected_response": "An expected response from the agent that matches the query.",
+    "criterion_comment": "A description of the evaluation criterion. This is used by the 'llm_evaluator' to rate the agent behavior.",
+    "criterion": "The agent should provide a response that is relevant to the query and uses the expected tools effectively."
+  }
+}

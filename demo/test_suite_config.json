@@ -1,0 +1,45 @@
+{   
+    "agents": [
+        "../configs/agents/main_orchestrator.yaml",
+        "../configs/agents/a2a_agents.yaml",
+        "../configs/agents/a2a_multimodal.yaml",
+        "../configs/agents/sam-mermaid.yaml"
+    ],
+    "llm_models": [
+        {
+            "name": "gemini-2.5-flash",
+            "env": {
+                "LLM_SERVICE_PLANNING_MODEL_NAME": "openai/gemini-2.5-flash",
+                "LLM_SERVICE_ENDPOINT_VAR": "LLM_SERVICE_ENDPOINT",
+                "LLM_SERVICE_API_KEY_VAR": "LLM_SERVICE_API_KEY",
+                "MAX_TOKENS": "8000"
+            }
+        }
+    ],
+    "results_dir_name": "sam_eval_test",
+    "runs": 1,
+    "test_cases": [
+        "test_cases/simple_hello_world.test.json",
+        "test_cases/web_search_summary.test.json",
+        "test_cases/convert_pdf_to_markdown.test.json",
+        "test_cases/generate_image.test.json",
+        "test_cases/generate_mermaid_diagram.test.json",
+        "test_cases/generate_complex_report.test.json"
+    ],
+    "evaluation_settings": {
+        "tool_match": {
+            "enabled": true
+        },
+        "response_match": {
+            "enabled": true
+        },
+        "llm_evaluator": {
+            "enabled": true,
+            "env": {
+                "LLM_SERVICE_PLANNING_MODEL_NAME": "openai/gemini-2.5-pro",
+                "LLM_SERVICE_ENDPOINT_VAR": "LLM_SERVICE_ENDPOINT",
+                "LLM_SERVICE_API_KEY_VAR": "LLM_SERVICE_API_KEY"
+            }
+        }
+    }
+}

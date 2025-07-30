@@ -1,0 +1,76 @@
+# Agent Configuration File: Complete Multi-Modal Agent Configuration
+#
+# This file contains the configuration for a comprehensive multi-modal agent with all capabilities:
+# - Image Generation (from text descriptions)
+log:
+  stdout_log_level: INFO
+  log_file_level: DEBUG
+  log_file: a2a_multimodal.log
+
+# Shared SAM config
+!include ../shared_config.yaml
+
+apps:
+  # Complete Multi-Modal Agent with All Capabilities
+  - name: multimodal_agent_app
+    app_base_path: .
+    app_module: solace_agent_mesh.agent.sac.app
+    broker:
+      <<: *broker_connection
+
+    # --- App Level Config ---
+    app_config:
+      namespace: ${NAMESPACE}
+      supports_streaming: true
+      agent_name: "MultiModalAgent"
+      display_name: "Multi-Modal Assistant"
+      model: *planning_model
+      instruction: |
+        You are a comprehensive multi-modal agent capable of processing and generating content across multiple modalities:
+        
+        **VISUAL CAPABILITIES:**
+        1. Image Generation: Create images from text descriptions using OpenAI-compatible APIs
+        
+        **USAGE GUIDELINES:**
+        
+        For Image Generation:
+        - Provide detailed, descriptive prompts for best results
+        - Specify style, mood, composition, and other visual elements
+        - Images are saved as PNG artifacts
+
+      # --- Tools Definition ---
+      tools:
+        # Image generation tool
+        - tool_type: builtin
+          tool_name: "create_image_from_description"
+          tool_config:
+            <<: *image_generation_model
+
+      session_service:
+        type: "memory"
+        default_behavior: "PERSISTENT"
+
+      artifact_service:
+        type: "filesystem"
+        base_path: "/tmp/samv2"
+        artifact_scope: namespace
+      enable_embed_resolution: true
+      enable_artifact_content_instruction: true
+      text_artifact_content_max_length: 20000
+      
+      # --- Agent Card Definition ---
+      agent_card:
+        description: "A comprehensive multi-modal agent that can generate images using advanced AI capabilities."
+        defaultInputModes: ["text", "file"]
+        defaultOutputModes: ["text", "file"]
+        skills:
+          - id: "create_image_from_description"
+            name: "Image Generation"
+            description: "Generates high-quality images from text descriptions using OpenAI-compatible image generation APIs."
+
+      # --- Discovery & Communication ---
+      agent_card_publishing: { interval_seconds: 10 }
+      agent_discovery: { enabled: false }
+      inter_agent_communication:
+        allow_list: []
+        request_timeout_seconds: 120

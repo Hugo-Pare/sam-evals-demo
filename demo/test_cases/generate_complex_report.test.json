@@ -1,0 +1,13 @@
+{
+    "test_case_id": "generate_complex_report",
+    "category": "Artifacts",
+    "description": "A test case to evaluate the agent's complex report generation and agent delegation capabilities.",
+    "query": "Research the current state of AI/ML tools market by gathering data from 2 or 3 industry websites and news sources. Create process flow diagrams showing typical AI implementation workflows, generate infographic-style visuals for statistics, and compile everything into a market analysis HTML report with charts and visual summaries.",
+    "target_agent": "OrchestratorAgent",
+    "wait_time": 300,
+    "evaluation": {
+        "expected_tools": [],
+        "expected_response": "Here is the market analysis report for the AI/ML tools.",
+        "criterion": "Evaluate if the agent provides the correct report."
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "test_case_id": "web_search_summary",
+    "category": "Agent Delegation",
+    "description": "A test case to evaluate the agent's web search capabilities.",
+    "query": "Summarize this page: https://solace.com/products/agent-mesh/",
+    "target_agent": "OrchestratorAgent",
+    "wait_time": 30,
+    "evaluation": {
+        "expected_tools": [],
+        "expected_response": "Solace Agent Mesh is an event-driven agentic AI framework that orchestrates autonomous AI agents and enables real-time interactions between agents, AI assets, applications, and enterprise data sources.",
+        "criterion": "Evaluate if the agent provides a correct summary of the web page."
+    }
+}

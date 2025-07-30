@@ -1,0 +1,114 @@
+# Agent Configuration File: A2A ADK Agents Configurations
+#
+# This file has the configuration for the A2A ADK agents.
+log:
+  stdout_log_level: INFO
+  log_file_level: DEBUG # Changed from INFO to DEBUG to capture ADK INFO logs
+  log_file: a2a_agents.log
+
+# Shared SAM config
+!include ../shared_config.yaml
+
+apps:
+# ---  Markitdown Agent ---
+  - name: markitdown_agent_app
+    app_base_path: .
+    app_module: solace_agent_mesh.agent.sac.app
+    broker:
+      <<: *broker_connection
+
+    # --- App Level Config ---
+    app_config:
+      namespace: ${NAMESPACE}
+      supports_streaming: true
+      agent_name: "MarkitdownAgent"
+      display_name: "Markdown"
+      model: *planning_model # Or *planning_model, choose as appropriate
+      instruction: |
+        The MarkitdownAgent has the following capability:
+        * convert various file types (like PDF, DOCX, XLSX, HTML, CSV, PPTX, ZIP) to Markdown.
+        Any files you get that might be useful should be saved using create_artifact.
+        There is no need to provide a preview of the content in the response.
+
+      # --- Tools Definition ---
+      tools:
+        - tool_type: builtin-group
+          group_name: "artifact_management"
+        - tool_type: builtin
+          tool_name: "convert_file_to_markdown"
+
+      session_service: *default_session_service
+      artifact_service: *default_artifact_service
+
+      artifact_handling_mode: "embed"
+      enable_embed_resolution: true
+      enable_artifact_content_instruction: true
+
+      # --- Agent Card Definition ---
+      agent_card:
+        description: "An agent that converts various file types (like PDF, DOCX, XLSX, HTML, CSV, PPTX, ZIP) to Markdown format."
+        defaultInputModes: ["text", "file"] # Can take files as input
+        defaultOutputModes: ["text", "file"] # Outputs markdown file
+        skills:
+        - id: "convert_file_to_markdown"
+          name: "Markdown Converter"
+          description: "Converts various file types to Markdown format."
+
+      # --- Discovery & Communication ---
+      agent_card_publishing: { interval_seconds: 10 }
+      agent_discovery: { enabled: false }
+      inter_agent_communication:
+        allow_list: []
+
+# --- Web Agent ---
+  - name: web_agent_app
+    app_base_path: .
+    app_module: solace_agent_mesh.agent.sac.app
+    broker:
+      <<: *broker_connection
+
+    app_config:
+      namespace: ${NAMESPACE}
+      supports_streaming: true
+      agent_name: "WebAgent"
+      display_name: "Web Agent"
+      model: *planning_model # Or another appropriate model from shared_config.yaml
+      instruction: |
+        You are an agent that can fetch content from web URLs using the 'web_request' tool.
+        You can make various types of HTTP requests (GET, POST, etc.) and include custom headers or a body.
+        The tool will return the fetched content (HTML converted to Markdown, other text types as is, or raw binary data).
+        You will then need to process this content based on the user's request.
+        Always save useful fetched content as an artifact.
+
+      tools:
+        - tool_type: builtin
+          tool_name: "web_request"
+        - tool_type: builtin-group
+          group_name: "artifact_management"
+
+      session_service:
+        type: "memory"
+        default_behavior: "PERSISTENT"
+
+      artifact_service:
+        type: "filesystem"
+        base_path: "/tmp/samv2"
+        artifact_scope: namespace
+      artifact_handling_mode: "reference"
+      enable_embed_resolution: true
+      enable_artifact_content_instruction: true
+
+      agent_card:
+        description: "An agent that fetches content from web URLs."
+        defaultInputModes: ["text"]
+        defaultOutputModes: ["text", "file"]
+        skills:
+          - id: "web_request"
+            name: "Web Request"
+            description: "Fetches content from a URL."
+
+      agent_card_publishing: { interval_seconds: 10 }
+      agent_discovery: { enabled: false }
+      inter_agent_communication:
+        allow_list: []
+        request_timeout_seconds: 120 # Increased for potential web + LLM processing

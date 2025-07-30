@@ -1,0 +1,56 @@
+{   
+    "_comment": "This is a template configuration file for the test suite. Please fill in the required parameters before running the evaluation.",
+    "agents_comment": "List of agents to be used in the test suite. Include paths to YAML files defining the agents.",
+    "agents": [
+        "path/to/agent.yaml"
+    ],
+    "llm_models_comment": "List of LLM models to be used in the test suite. Each model should have a name and environment variables for configuration.",
+    "llm_models": [
+        {
+            "name_comment": "Name of the LLM model. This will be used to identify the model in the test suite.",
+            "name": "gpt-4-1",
+            "env_comment": "Environment variables required for the LLM model. These should be set in this file or in a .env file.",
+            "env": {
+                "_comment": "A key ending with '_VAR' indicates that the value points to a variable in the .env file.",
+                "LLM_SERVICE_PLANNING_MODEL_NAME": "openai/azure-gpt-4-1",
+                "LLM_SERVICE_ENDPOINT_VAR": "LLM_SERVICE_ENDPOINT",
+                "LLM_SERVICE_API_KEY_VAR": "LLM_SERVICE_API_KEY",
+                "MAX_TOKENS": "8000"
+            }
+        }
+    ],
+    "results_dir_name_comment": "Name of the directory where the results of the test suite will be stored. This directory will be created if it does not exist.",
+    "results_dir_name": "sam_eval_test",
+    "runs_comment": "Number of times each test case should be run. Default value is 1.",
+    "runs": 3,
+    "test_cases_comment": "List of test cases to be executed in the test suite.",
+    "test_cases": [
+        "test_case_1.test.json",
+        "test_case_2.test.json",
+        "test_case_3.test.json",
+        "test_case_4.test.json",
+        "test_case_5.test.json"
+    ],
+    "evaluation_settings_comment": "Settings for the evaluation of the test cases. These settings control how the results are evaluated.",
+    "evaluation_settings": {
+        "tool_match_comment": "Evaluates the tools used to generate the response. Enabled by default.",
+        "tool_match": {
+            "enabled": true
+        },
+        "response_match_comment": "Evaluates the final response based on rouge metric. Enabled by default.",
+        "response_match": {
+            "enabled": true
+        },
+        "llm_evaluator_comment": "Evaluates the tools, artifacts, and final response generated based on the LLM model. Disabled by default.",
+        "llm_evaluator": {
+            "enabled": true,
+            "env_comment": "Environment variables required for the LLM evaluator.",
+            "env": {
+                "_comment": "A key ending with '_VAR' indicates that the value points to a variable in the .env file.",
+                "LLM_SERVICE_PLANNING_MODEL_NAME": "openai/gemini-2.5-pro",
+                "LLM_SERVICE_ENDPOINT_VAR": "LLM_SERVICE_ENDPOINT",
+                "LLM_SERVICE_API_KEY_VAR": "LLM_SERVICE_API_KEY"
+            }
+        }
+    }
+}

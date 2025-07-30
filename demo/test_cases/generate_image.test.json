@@ -1,0 +1,13 @@
+{
+    "test_case_id": "generate_image",
+    "category": "Artifacts",
+    "description": "A test case to evaluate the agent's image generation capabilities.",
+    "query": "Generate an image of a sunset over the mountains.",
+    "target_agent": "MultiModalAgent",
+    "wait_time": 60,
+    "evaluation": {
+        "expected_tools": ["create_image_from_description"],
+        "expected_response": "Here is the image of a sunset over the mountains.",
+        "criterion": "Evaluate if the agent provides the correct image."
+    }
+}

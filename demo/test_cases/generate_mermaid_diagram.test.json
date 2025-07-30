@@ -1,0 +1,13 @@
+{
+    "test_case_id": "generate_mermaid_diagram",
+    "category": "Agent Delegation",
+    "description": "A test case to evaluate the agent's Mermaid diagram generation capabilities.",
+    "query": "Generate a Mermaid flowchart diagram for a user login.",
+    "target_agent": "OrchestratorAgent",
+    "wait_time": 60,
+    "evaluation": {
+        "expected_tools": ["peer_SamMermaid"],
+        "expected_response": "Here is the Mermaid diagram for a user login.",
+        "criterion": "Evaluate if the agent provides the correct diagram."
+    }
+}
