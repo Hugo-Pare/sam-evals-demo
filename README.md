@@ -27,20 +27,21 @@ This section provides a tutorial for running the included demo.
 ### Installation
 
 1.  **Set up your environment variables:**
+
     Ensure that your `.env` file is populated with all the necessary values.
 
-2.  **Create and activate a virtual environment:**
+3.  **Create and activate a virtual environment:**
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     ```
 
-3.  **Install the required packages:**
+4.  **Install the required packages:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Run the evaluation suite:**
+5.  **Run the evaluation suite:**
     ```bash
     sam eval demo/test_suite_config.json
     ```
