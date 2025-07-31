@@ -14,6 +14,14 @@
                 "LLM_SERVICE_API_KEY_VAR": "LLM_SERVICE_API_KEY",
                 "MAX_TOKENS": "8000"
             }
+        },
+        {
+            "name": "vertex-claude-4-sonnet",
+            "env": {
+                "LLM_SERVICE_PLANNING_MODEL_NAME": "openai/vertex-claude-4-sonnet",
+                "LLM_SERVICE_ENDPOINT_VAR": "LLM_SERVICE_ENDPOINT",
+                "LLM_SERVICE_API_KEY_VAR": "LLM_SERVICE_API_KEY"
+            }
         }
     ],
     "results_dir_name": "sam_eval_test",

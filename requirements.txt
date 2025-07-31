@@ -1,1 +1,3 @@
 solace-agent-mesh~=1.0.1
+sam-rest-gateway @ git+https://github.com/SolaceLabs/solace-agent-mesh-core-plugins#subdirectory=sam-rest-gateway
+sam-mermaid @ git+https://github.com/SolaceLabs/solace-agent-mesh-core-plugins#subdirectory=sam-mermaid
