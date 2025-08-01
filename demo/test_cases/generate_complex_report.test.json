@@ -12,7 +12,11 @@
     ],
     "wait_time": 300,
     "evaluation": {
-        "expected_tools": [],
+        "expected_tools": [
+            "peer_WebAgent",
+            "peer_SamMermaid",
+            "signal_artifact_for_return"
+        ],
         "expected_response": "Here is the report on NVIDIA's financials.",
         "criterion": "Evaluate if the agent provides the correct report."
     }

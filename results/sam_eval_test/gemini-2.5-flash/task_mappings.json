@@ -1,8 +1,8 @@
 {
-    "task-a3102128fadf4695bb711fe6e14727fb": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/simple_hello_world/run_1",
-    "task-37dc8f0c346740afa7400aae7bd569a6": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/web_search_summary/run_1",
-    "task-86570e4b49f542a0abd2e5c17f2366e4": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/convert_pdf_to_markdown/run_1",
-    "task-9870f6213a824c2cb7c9b87feeba3218": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_image/run_1",
-    "task-3402214fdf1a49bba81f71f14acfa1e6": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_mermaid_diagram/run_1",
-    "task-4ce88dafc54f46ddbe66108a39c4a317": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_complex_report/run_1"
+    "task-49db8bdb5b804084bd016fa89260949c": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/simple_hello_world/run_1",
+    "task-0b39482e327b4ea7ae57033a5cdf9919": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/web_search_summary/run_1",
+    "task-9f74bac61ab1457db2e521f7ccf6e53d": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/convert_pdf_to_markdown/run_1",
+    "task-94b6cf6a82354b2294c1207eae11eb73": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_image/run_1",
+    "task-665f76d78b3041049f3d11f1ba4ec3d7": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_mermaid_diagram/run_1",
+    "task-27361509a3ad4c4d9cac0e9564d32d1d": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_complex_report/run_1"
 }

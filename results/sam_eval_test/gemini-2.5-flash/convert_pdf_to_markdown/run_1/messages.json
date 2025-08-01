@@ -1,25 +1,25 @@
 [
     {
-        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/agent/request/OrchestratorAgent",
+        "topic": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890/a2a/v1/agent/request/OrchestratorAgent",
         "payload": {
             "jsonrpc": "2.0",
-            "id": "c2cd26ce83db4b3683f93de7c12739e7",
+            "id": "916d4a52928d402bb2ca6d40a63af6ed",
             "method": "tasks/sendSubscribe",
             "params": {
-                "id": "task-86570e4b49f542a0abd2e5c17f2366e4",
-                "sessionId": "rest-session-ea2456bff11f454cbba6b9c2fc820cff",
+                "id": "task-9f74bac61ab1457db2e521f7ccf6e53d",
+                "sessionId": "rest-session-bf59ee2fabc9407a917fa2934e0b3593",
                 "message": {
                     "role": "user",
                     "parts": [
                         {
                             "type": "text",
-                            "text": "Request received by gateway at: 2025-08-01T02:27:45.009788+00:00"
+                            "text": "Request received by gateway at: 2025-08-01T14:45:50.926361+00:00"
                         },
                         {
                             "type": "file",
                             "file": {
                                 "name": "sample.pdf",
-                                "uri": "artifact://gdk-gateway-1a93ed9a/eval-user/rest-session-ea2456bff11f454cbba6b9c2fc820cff/sample.pdf?version=0"
+                                "uri": "artifact://gdk-gateway-5ec0061f/eval-user/rest-session-bf59ee2fabc9407a917fa2934e0b3593/sample.pdf?version=0"
                             }
                         },
                         {
@@ -41,12 +41,12 @@
         }
     },
     {
-        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-86570e4b49f542a0abd2e5c17f2366e4",
+        "topic": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890/a2a/v1/gateway/status/gdk-gateway-5ec0061f/task-9f74bac61ab1457db2e521f7ccf6e53d",
         "payload": {
             "jsonrpc": "2.0",
-            "id": "c2cd26ce83db4b3683f93de7c12739e7",
+            "id": "916d4a52928d402bb2ca6d40a63af6ed",
             "result": {
-                "id": "task-86570e4b49f542a0abd2e5c17f2366e4",
+                "id": "task-9f74bac61ab1457db2e521f7ccf6e53d",
                 "status": {
                     "state": "working",
                     "message": {
@@ -58,17 +58,17 @@
                                 "content": {
                                     "parts": [
                                         {
-                                            "text": "\u00abstatus_update:Delegating PDF to Markdown conversion to MarkitdownAgent.\u00bb"
+                                            "text": "\u00abstatus_update:Delegating PDF to Markdown conversion to MarkitdownAgent...\u00bb"
                                         },
                                         {
                                             "function_call": {
-                                                "id": "cb401a4a-2489-4268-8911-9b54edf7c14f",
+                                                "id": "82ee9105-362f-462f-8865-203eb797e894",
                                                 "args": {
-                                                    "task_description": "Convert the provided PDF file named \"sample.pdf\" to Markdown format.",
-                                                    "user_query": "Convert the attached PDF file to Markdown.",
                                                     "data_artifacts": [
                                                         "sample.pdf"
-                                                    ]
+                                                    ],
+                                                    "user_query": "Please convert the attached PDF file to Markdown.",
+                                                    "task_description": "Convert the provided PDF file to Markdown format."
                                                 },
                                                 "name": "peer_MarkitdownAgent"
                                             }
@@ -80,7 +80,7 @@
                             }
                         }
                     },
-                    "timestamp": "2025-08-01T02:27:46.284868+00:00"
+                    "timestamp": "2025-08-01T14:45:52.331304+00:00"
                 },
                 "final": true,
                 "metadata": {
@@ -90,20 +90,20 @@
         }
     },
     {
-        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/agent/request/MarkitdownAgent",
+        "topic": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890/a2a/v1/agent/request/MarkitdownAgent",
         "payload": {
             "jsonrpc": "2.0",
-            "id": "8bce5435f112408f87795fcfacc6f63b",
+            "id": "a7701101fd6945e1ac604e4a683f564a",
             "method": "tasks/send",
             "params": {
-                "id": "a2a_subtask_abdaf37e2cf543f39ac5168579f3fce9",
-                "sessionId": "rest-session-ea2456bff11f454cbba6b9c2fc820cff",
+                "id": "a2a_subtask_b09ea14dcdc64bf1ad88fd367cfc2de6",
+                "sessionId": "rest-session-bf59ee2fabc9407a917fa2934e0b3593",
                 "message": {
                     "role": "user",
                     "parts": [
                         {
                             "type": "text",
-                            "text": "You are part of a multi-agent AI platform. The task below is being sent to you by agent 'OrchestratorAgent'. You must perform this task to the best of your abilities. All artifacts that you create will automatically be returned to the calling agent, but you must provide context and description for which artifacts are important and how they should be used. Note that the calling agent will not see any of your history - only the text that you respond with.\n\nNow please execute this task that was given to you:\n\nConvert the provided PDF file named \"sample.pdf\" to Markdown format."
+                            "text": "You are part of a multi-agent AI platform. The task below is being sent to you by agent 'OrchestratorAgent'. You must perform this task to the best of your abilities. All artifacts that you create will automatically be returned to the calling agent, but you must provide context and description for which artifacts are important and how they should be used. Note that the calling agent will not see any of your history - only the text that you respond with.\n\nNow please execute this task that was given to you:\n\nConvert the provided PDF file to Markdown format."
                         },
                         {
                             "type": "file",
@@ -117,19 +117,19 @@
                 },
                 "metadata": {
                     "sessionBehavior": "RUN_BASED",
-                    "parentTaskId": "task-86570e4b49f542a0abd2e5c17f2366e4",
-                    "function_call_id": "cb401a4a-2489-4268-8911-9b54edf7c14f"
+                    "parentTaskId": "task-9f74bac61ab1457db2e521f7ccf6e53d",
+                    "function_call_id": "82ee9105-362f-462f-8865-203eb797e894"
                 }
             }
         }
     },
     {
-        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-86570e4b49f542a0abd2e5c17f2366e4",
+        "topic": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890/a2a/v1/gateway/status/gdk-gateway-5ec0061f/task-9f74bac61ab1457db2e521f7ccf6e53d",
         "payload": {
             "jsonrpc": "2.0",
-            "id": "c2cd26ce83db4b3683f93de7c12739e7",
+            "id": "916d4a52928d402bb2ca6d40a63af6ed",
             "result": {
-                "id": "task-86570e4b49f542a0abd2e5c17f2366e4",
+                "id": "task-9f74bac61ab1457db2e521f7ccf6e53d",
                 "status": {
                     "state": "working",
                     "message": {
@@ -141,11 +141,11 @@
                                 "content": {
                                     "parts": [
                                         {
-                                            "text": "\u00abstatus_update:Listing artifacts to confirm the conversion.\u00bb"
+                                            "text": "\u00abstatus_update:Listing created artifacts to confirm the conversion...\u00bb"
                                         },
                                         {
                                             "function_call": {
-                                                "id": "156fbdeb-32a3-43e4-b49d-7ad4f5d2e59a",
+                                                "id": "8092e0b9-e3cf-4794-b2b3-c6ad4728c3b5",
                                                 "args": {},
                                                 "name": "list_artifacts"
                                             }
@@ -157,7 +157,7 @@
                             }
                         }
                     },
-                    "timestamp": "2025-08-01T02:27:52.525108+00:00"
+                    "timestamp": "2025-08-01T14:45:58.309831+00:00"
                 },
                 "final": true,
                 "metadata": {
@@ -167,12 +167,12 @@
         }
     },
     {
-        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-86570e4b49f542a0abd2e5c17f2366e4",
+        "topic": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890/a2a/v1/gateway/status/gdk-gateway-5ec0061f/task-9f74bac61ab1457db2e521f7ccf6e53d",
         "payload": {
             "jsonrpc": "2.0",
-            "id": "c2cd26ce83db4b3683f93de7c12739e7",
+            "id": "916d4a52928d402bb2ca6d40a63af6ed",
             "result": {
-                "id": "task-86570e4b49f542a0abd2e5c17f2366e4",
+                "id": "task-9f74bac61ab1457db2e521f7ccf6e53d",
                 "status": {
                     "state": "working",
                     "message": {
@@ -184,11 +184,11 @@
                                 "content": {
                                     "parts": [
                                         {
-                                            "text": "\u00abstatus_update:Signaling the converted Markdown file for return.\u00bb"
+                                            "text": "\u00abstatus_update:Signaling the converted Markdown file for return to the user...\u00bb"
                                         },
                                         {
                                             "function_call": {
-                                                "id": "67f3f45d-25d8-45ef-9404-718700579545",
+                                                "id": "4615068a-50ae-4992-89d0-34865d40520a",
                                                 "args": {
                                                     "filename": "sample_converted.md",
                                                     "version": 0
@@ -203,7 +203,7 @@
                             }
                         }
                     },
-                    "timestamp": "2025-08-01T02:27:53.575003+00:00"
+                    "timestamp": "2025-08-01T14:45:59.650615+00:00"
                 },
                 "final": true,
                 "metadata": {
@@ -213,12 +213,12 @@
         }
     },
     {
-        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-86570e4b49f542a0abd2e5c17f2366e4",
+        "topic": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890/a2a/v1/gateway/status/gdk-gateway-5ec0061f/task-9f74bac61ab1457db2e521f7ccf6e53d",
         "payload": {
             "jsonrpc": "2.0",
-            "id": "c2cd26ce83db4b3683f93de7c12739e7",
+            "id": "916d4a52928d402bb2ca6d40a63af6ed",
             "result": {
-                "id": "task-86570e4b49f542a0abd2e5c17f2366e4",
+                "id": "task-9f74bac61ab1457db2e521f7ccf6e53d",
                 "status": {
                     "state": "working",
                     "message": {
@@ -230,7 +230,7 @@
                                 "content": {
                                     "parts": [
                                         {
-                                            "text": "The PDF file has been successfully converted to Markdown format.\n\nI have generated an artifact named `sample_converted.md` containing the converted content, which has been signaled for return to you."
+                                            "text": "The PDF file has been successfully converted to Markdown. The converted file, `sample_converted.md`, is available for download."
                                         }
                                     ],
                                     "role": "model"
@@ -239,7 +239,7 @@
                             }
                         }
                     },
-                    "timestamp": "2025-08-01T02:27:54.657540+00:00"
+                    "timestamp": "2025-08-01T14:46:00.790967+00:00"
                 },
                 "final": true,
                 "metadata": {
@@ -249,13 +249,13 @@
         }
     },
     {
-        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/response/gdk-gateway-1a93ed9a/task-86570e4b49f542a0abd2e5c17f2366e4",
+        "topic": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890/a2a/v1/gateway/response/gdk-gateway-5ec0061f/task-9f74bac61ab1457db2e521f7ccf6e53d",
         "payload": {
             "jsonrpc": "2.0",
-            "id": "c2cd26ce83db4b3683f93de7c12739e7",
+            "id": "916d4a52928d402bb2ca6d40a63af6ed",
             "result": {
-                "id": "task-86570e4b49f542a0abd2e5c17f2366e4",
-                "sessionId": "rest-session-ea2456bff11f454cbba6b9c2fc820cff",
+                "id": "task-9f74bac61ab1457db2e521f7ccf6e53d",
+                "sessionId": "rest-session-bf59ee2fabc9407a917fa2934e0b3593",
                 "status": {
                     "state": "completed",
                     "message": {
@@ -263,11 +263,11 @@
                         "parts": [
                             {
                                 "type": "text",
-                                "text": "The PDF file has been successfully converted to Markdown format.\n\nI have generated an artifact named `sample_converted.md` containing the converted content, which has been signaled for return to you."
+                                "text": "The PDF file has been successfully converted to Markdown. The converted file, `sample_converted.md`, is available for download."
                             }
                         ]
                     },
-                    "timestamp": "2025-08-01T02:27:54.660180+00:00"
+                    "timestamp": "2025-08-01T14:46:00.794595+00:00"
                 },
                 "metadata": {
                     "agent_name": "OrchestratorAgent",

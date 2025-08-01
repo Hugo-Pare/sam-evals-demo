@@ -3,71 +3,18 @@
     "run_id": "run_1",
     "query": "Research what the company NVIDIA does and create an HTML report containing their financials over time, using the data from the csv file to generate graphs.",
     "target_agent": "OrchestratorAgent",
-    "namespace": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7",
-    "session_id": "rest-session-116736f8ceb8464fb58d9f4612edb871",
+    "namespace": "eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40",
+    "session_id": "rest-session-efd1a9229ae44f34a1f4e29e8dff269b",
     "final_status": "",
     "final_message": "",
-    "start_time": "2025-08-01T02:33:14.976364+00:00",
+    "start_time": "2025-08-01T14:51:18.166424+00:00",
     "end_time": null,
     "duration_seconds": null,
-    "tool_calls": [
-        {
-            "call_id": "tooluse_ZB7bADhxR2SZjTpxeI44ug",
-            "agent": "OrchestratorAgent",
-            "tool_name": "load_artifact",
-            "arguments": {
-                "version": 0,
-                "load_metadata_only": false,
-                "filename": "NVIDIA_Corporation_Research_Report.md_extracted_25e83312.txt"
-            },
-            "timestamp": "2025-08-01T02:37:19.399518+00:00"
-        },
-        {
-            "call_id": "host-notify-c4a0f872-9e6e-4d7b-b619-edbb8ebe6dcb",
-            "agent": "OrchestratorAgent",
-            "tool_name": "_notify_artifact_save",
-            "arguments": {
-                "filename": "nvidia_financial_report.html",
-                "version": 0,
-                "status": "success"
-            },
-            "timestamp": "2025-08-01T02:37:57.085656+00:00"
-        },
-        {
-            "call_id": "tooluse_TxhnghjyR2qE3L-_GODmPA",
-            "agent": "OrchestratorAgent",
-            "tool_name": "signal_artifact_for_return",
-            "arguments": {
-                "version": 0,
-                "filename": "nvidia_market_cap.png"
-            },
-            "timestamp": "2025-08-01T02:38:05.506257+00:00"
-        },
-        {
-            "call_id": "tooluse_PJVOCIPaR0uWcrQT27BuTQ",
-            "agent": "OrchestratorAgent",
-            "tool_name": "signal_artifact_for_return",
-            "arguments": {
-                "version": 0,
-                "filename": "nvidia_enterprise_value.png"
-            },
-            "timestamp": "2025-08-01T02:38:08.970374+00:00"
-        },
-        {
-            "call_id": "tooluse_2tG8a-DLQc64QBrqtBGDaQ",
-            "agent": "OrchestratorAgent",
-            "tool_name": "signal_artifact_for_return",
-            "arguments": {
-                "version": 0,
-                "filename": "nvidia_pe_ratio.png"
-            },
-            "timestamp": "2025-08-01T02:38:12.630584+00:00"
-        }
-    ],
+    "tool_calls": [],
     "input_artifacts": [
         {
             "artifact_name": "financial_data.csv",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/financial_data.csv",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/financial_data.csv",
             "versions": [
                 {
                     "version": "0",
@@ -75,7 +22,7 @@
                         "filename": "financial_data.csv",
                         "mime_type": "text/csv",
                         "size_bytes": 215,
-                        "timestamp_utc": 1754015594.973067,
+                        "timestamp_utc": 1754059878.163982,
                         "source": "rest_gateway_upload",
                         "schema": {
                             "type": "text/csv",
@@ -100,24 +47,55 @@
     ],
     "output_artifacts": [
         {
-            "artifact_name": "nvidia_newsroom.md",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_newsroom.md",
+            "artifact_name": "nvidia_gaming.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_gaming.md",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "nvidia_newsroom.md",
+                        "filename": "nvidia_gaming.md",
+                        "mime_type": "text/html",
+                        "size_bytes": 284444,
+                        "timestamp_utc": 1754059929.87166,
+                        "url": "https://www.nvidia.com/en-us/gaming/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 404,
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"content-length\": \"284444\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/page-not-found/this/,/en-us/page-not-found/,/en-us/\", \"last-modified\": \"Fri, 01 Aug 2025 14:26:43 GMT\", \"etag\": \"\\\"4571c-63b4e8c13a900\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web02\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"date\": \"Fri, 01 Aug 2025 14:52:10 GMT\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"cache-control\": \"max-age=0, no-cache, no-store\", \"akamai-cache-status\": \"Miss from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/html",
+                        "timestamp": "2025-08-01T14:52:09.871581+00:00",
+                        "schema": {
+                            "type": "text/html",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_data_center.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_data_center.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_data_center.md",
                         "mime_type": "text/markdown",
-                        "size_bytes": 10329,
-                        "timestamp_utc": 1754015628.55454,
-                        "url": "https://nvidianews.nvidia.com/news",
+                        "size_bytes": 72326,
+                        "timestamp_utc": 1754059939.293,
+                        "url": "https://www.nvidia.com/en-us/data-center/",
                         "method": "GET",
                         "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
                         "response_status_code": 200,
-                        "response_headers": "{\"date\": \"Fri, 01 Aug 2025 02:29:45 GMT\", \"content-type\": \"text/html; charset=utf-8\", \"x-cache-timestamp\": \"Fri, 01 Aug 2025 02:29:45 GMT\", \"x-varnish\": \"393430179 386509293\", \"age\": \"243\", \"accept-ranges\": \"bytes\", \"x-varnish-2023-age\": \"243.714\", \"x-varnish-2023-ttl\": \"56.286\", \"x-varnish-2023-cache\": \"HIT\", \"content-length\": \"65873\", \"via\": \"1.1 ipr-varnish-2023 (Varnish/7.4), 1.1 google\", \"alt-svc\": \"h3=\\\":443\\\"; ma=2592000,h3-29=\\\":443\\\"; ma=2592000\"}",
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/data-center/this/,/en-us/data-center/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 15:52:37 GMT\", \"etag\": \"W/\\\"8a115-63b3ba16b786f\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web01\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"content-encoding\": \"gzip\", \"x-edgeconnect-midmile-rtt\": \"0\", \"x-edgeconnect-origin-mex-latency\": \"752\", \"date\": \"Fri, 01 Aug 2025 14:52:20 GMT\", \"content-length\": \"61824\", \"connection\": \"keep-alive\", \"vary\": \"Accept-Encoding\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
                         "original_content_type": "text/html",
                         "processed_content_type": "text/markdown",
-                        "timestamp": "2025-08-01T02:33:48.554451+00:00",
+                        "timestamp": "2025-08-01T14:52:19.292870+00:00",
                         "schema": {
                             "type": "text/markdown",
                             "inferred": false,
@@ -131,20 +109,51 @@
             "creation_timestamp": null
         },
         {
-            "artifact_name": "nvidia_wikipedia_summary_613f89e5.txt",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_wikipedia_summary_613f89e5.txt",
+            "artifact_name": "nvidia_newsroom.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_newsroom.md",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "nvidia_wikipedia_summary_613f89e5.txt",
+                        "filename": "nvidia_newsroom.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 11336,
+                        "timestamp_utc": 1754059945.309956,
+                        "url": "https://nvidianews.nvidia.com/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 200,
+                        "response_headers": "{\"date\": \"Fri, 01 Aug 2025 14:48:47 GMT\", \"content-type\": \"text/html; charset=utf-8\", \"x-cache-timestamp\": \"Fri, 01 Aug 2025 14:48:47 GMT\", \"x-varnish\": \"404230093 400765072\", \"age\": \"217\", \"accept-ranges\": \"bytes\", \"x-varnish-2023-age\": \"217.552\", \"x-varnish-2023-ttl\": \"82.448\", \"x-varnish-2023-cache\": \"HIT\", \"content-length\": \"82249\", \"via\": \"1.1 ipr-varnish-2023 (Varnish/7.4), 1.1 google\", \"alt-svc\": \"h3=\\\":443\\\"; ma=2592000,h3-29=\\\":443\\\"; ma=2592000\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T14:52:25.309860+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_technologies_4d0d07f0.txt",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_technologies_4d0d07f0.txt",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_technologies_4d0d07f0.txt",
                         "mime_type": "text/plain",
-                        "size_bytes": 3196,
-                        "timestamp_utc": 1754015679.192964,
-                        "description": "Content extracted/transformed from artifact 'nvidia_wikipedia.md' (version 0) using goal: 'Extract key information about NVIDIA's main business areas, products, and technologies, focusing on their GPU architectures, product lines, and major platforms.'.",
-                        "source_artifact_filename": "nvidia_wikipedia.md",
-                        "source_artifact_version": 0,
-                        "extraction_goal_used": "Extract key information about NVIDIA's main business areas, products, and technologies, focusing on their GPU architectures, product lines, and major platforms.",
+                        "size_bytes": 5207,
+                        "timestamp_utc": 1754060101.285336,
+                        "description": "Content extracted/transformed from artifact 'nvidia_products.md' (version 1) using goal: 'Extract information about NVIDIA's main technologies, product architecture, and innovation areas from their technologies page. Focus on identifying their key technological platforms, GPU architectures, and technological innovations that differentiate them in the market.'.",
+                        "source_artifact_filename": "nvidia_products.md",
+                        "source_artifact_version": 1,
+                        "extraction_goal_used": "Extract information about NVIDIA's main technologies, product architecture, and innovation areas from their technologies page. Focus on identifying their key technological platforms, GPU architectures, and technological innovations that differentiate them in the market.",
                         "schema": {
                             "type": "text/plain",
                             "inferred": false,
@@ -159,7 +168,7 @@
         },
         {
             "artifact_name": "financial_data.csv",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/financial_data.csv",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/financial_data.csv",
             "versions": [
                 {
                     "version": "0",
@@ -167,7 +176,7 @@
                         "filename": "financial_data.csv",
                         "mime_type": "text/csv",
                         "size_bytes": 215,
-                        "timestamp_utc": 1754015594.973067,
+                        "timestamp_utc": 1754059878.163982,
                         "source": "rest_gateway_upload",
                         "schema": {
                             "type": "text/csv",
@@ -192,23 +201,45 @@
         },
         {
             "artifact_name": "nvidia_investor_relations.md",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_investor_relations.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_investor_relations.md",
             "versions": [
+                {
+                    "version": "1",
+                    "metadata": {
+                        "filename": "nvidia_investor_relations.md",
+                        "mime_type": "text/html",
+                        "size_bytes": 5459,
+                        "timestamp_utc": 1754060035.52702,
+                        "url": "https://investor.nvidia.com/home/default.aspx",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 403,
+                        "response_headers": "{\"date\": \"Fri, 01 Aug 2025 14:53:56 GMT\", \"content-type\": \"text/html; charset=UTF-8\", \"transfer-encoding\": \"chunked\", \"connection\": \"keep-alive\", \"x-frame-options\": \"SAMEORIGIN\", \"referrer-policy\": \"same-origin\", \"cache-control\": \"private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\", \"expires\": \"Thu, 01 Jan 1970 00:00:01 GMT\", \"vary\": \"Accept-Encoding\", \"server\": \"cloudflare\", \"cf-ray\": \"96862afd0b18a2e6-YUL\", \"content-encoding\": \"gzip\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/html",
+                        "timestamp": "2025-08-01T14:53:55.526952+00:00",
+                        "schema": {
+                            "type": "text/html",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                },
                 {
                     "version": "0",
                     "metadata": {
                         "filename": "nvidia_investor_relations.md",
                         "mime_type": "text/html",
                         "size_bytes": 5459,
-                        "timestamp_utc": 1754015618.758437,
-                        "url": "https://investor.nvidia.com/overview/default.aspx",
+                        "timestamp_utc": 1754059913.04974,
+                        "url": "https://investor.nvidia.com/home/default.aspx",
                         "method": "GET",
                         "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
                         "response_status_code": 403,
-                        "response_headers": "{\"date\": \"Fri, 01 Aug 2025 02:33:39 GMT\", \"content-type\": \"text/html; charset=UTF-8\", \"transfer-encoding\": \"chunked\", \"connection\": \"keep-alive\", \"x-frame-options\": \"SAMEORIGIN\", \"referrer-policy\": \"same-origin\", \"cache-control\": \"private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\", \"expires\": \"Thu, 01 Jan 1970 00:00:01 GMT\", \"vary\": \"Accept-Encoding\", \"server\": \"cloudflare\", \"cf-ray\": \"9681ee934998a310-YUL\", \"content-encoding\": \"gzip\"}",
+                        "response_headers": "{\"date\": \"Fri, 01 Aug 2025 14:51:53 GMT\", \"content-type\": \"text/html; charset=UTF-8\", \"transfer-encoding\": \"chunked\", \"connection\": \"keep-alive\", \"x-frame-options\": \"SAMEORIGIN\", \"referrer-policy\": \"same-origin\", \"cache-control\": \"private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\", \"expires\": \"Thu, 01 Jan 1970 00:00:01 GMT\", \"vary\": \"Accept-Encoding\", \"server\": \"cloudflare\", \"cf-ray\": \"968627f89803a30f-YUL\", \"content-encoding\": \"gzip\"}",
                         "original_content_type": "text/html",
                         "processed_content_type": "text/html",
-                        "timestamp": "2025-08-01T02:33:38.758379+00:00",
+                        "timestamp": "2025-08-01T14:51:53.049673+00:00",
                         "schema": {
                             "type": "text/html",
                             "inferred": false,
@@ -222,20 +253,22 @@
             "creation_timestamp": null
         },
         {
-            "artifact_name": "nvidia_market_vs_enterprise.png",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_market_vs_enterprise.png",
+            "artifact_name": "nvidia_core_info_3041605b.txt",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_core_info_3041605b.txt",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "nvidia_market_vs_enterprise.png",
-                        "mime_type": "image/png",
-                        "size_bytes": 54840,
-                        "timestamp_utc": 1754015817.116387,
-                        "description": "Chart generated from Plotly config (json)",
-                        "source_format": "json",
+                        "filename": "nvidia_core_info_3041605b.txt",
+                        "mime_type": "text/plain",
+                        "size_bytes": 3489,
+                        "timestamp_utc": 1754060068.576998,
+                        "description": "Content extracted/transformed from artifact 'nvidia_wikipedia.md' (version 0) using goal: 'Extract key information about NVIDIA's core business, main product categories, and market position. Focus on identifying their primary business segments, flagship products, technological focus areas, and their position in the semiconductor/technology industry. Summarize the information in a structured, concise format.'.",
+                        "source_artifact_filename": "nvidia_wikipedia.md",
+                        "source_artifact_version": 0,
+                        "extraction_goal_used": "Extract key information about NVIDIA's core business, main product categories, and market position. Focus on identifying their primary business segments, flagship products, technological focus areas, and their position in the semiconductor/technology industry. Summarize the information in a structured, concise format.",
                         "schema": {
-                            "type": "image/png",
+                            "type": "text/plain",
                             "inferred": false,
                             "error": null
                         }
@@ -248,23 +281,76 @@
         },
         {
             "artifact_name": "nvidia_products.md",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_products.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_products.md",
             "versions": [
                 {
-                    "version": "0",
+                    "version": "1",
                     "metadata": {
                         "filename": "nvidia_products.md",
                         "mime_type": "text/markdown",
                         "size_bytes": 52628,
-                        "timestamp_utc": 1754015632.956057,
+                        "timestamp_utc": 1754060031.333445,
                         "url": "https://www.nvidia.com/en-us/technologies/",
                         "method": "GET",
                         "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
                         "response_status_code": 200,
-                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/technologies/this/,/en-us/technologies/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 15:45:28 GMT\", \"etag\": \"\\\"5772b-63b3b87df071a\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web02\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"content-encoding\": \"gzip\", \"content-length\": \"49105\", \"date\": \"Fri, 01 Aug 2025 02:33:53 GMT\", \"connection\": \"keep-alive\", \"vary\": \"Accept-Encoding\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Miss from child, Hit from parent\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/technologies/this/,/en-us/technologies/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 15:45:28 GMT\", \"etag\": \"\\\"5772b-63b3b87df071a\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web02\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"date\": \"Fri, 01 Aug 2025 14:53:51 GMT\", \"content-length\": \"49105\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
                         "original_content_type": "text/html",
                         "processed_content_type": "text/markdown",
-                        "timestamp": "2025-08-01T02:33:52.955976+00:00",
+                        "timestamp": "2025-08-01T14:53:51.333363+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                },
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_products.md",
+                        "mime_type": "text/html",
+                        "size_bytes": 284444,
+                        "timestamp_utc": 1754059902.666729,
+                        "url": "https://www.nvidia.com/en-us/about-nvidia/products/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 404,
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"content-length\": \"284444\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/page-not-found/this/,/en-us/page-not-found/,/en-us/\", \"last-modified\": \"Fri, 01 Aug 2025 14:26:43 GMT\", \"etag\": \"\\\"4571c-63b4e8c13a900\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web02\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"date\": \"Fri, 01 Aug 2025 14:51:43 GMT\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"cache-control\": \"max-age=0, no-cache, no-store\", \"akamai-cache-status\": \"Miss from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/html",
+                        "timestamp": "2025-08-01T14:51:42.666669+00:00",
+                        "schema": {
+                            "type": "text/html",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_about_page.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_about_page.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_about_page.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 7587,
+                        "timestamp_utc": 1754060025.105841,
+                        "url": "https://www.nvidia.com/en-us/about-nvidia/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 200,
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/about-nvidia/this/,/en-us/about-nvidia/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 15:45:04 GMT\", \"etag\": \"W/\\\"765f3-63b3b86631b78\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web03\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"date\": \"Fri, 01 Aug 2025 14:53:45 GMT\", \"transfer-encoding\": \"chunked\", \"connection\": \"keep-alive, Transfer-Encoding\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T14:53:45.105754+00:00",
                         "schema": {
                             "type": "text/markdown",
                             "inferred": false,
@@ -279,23 +365,54 @@
         },
         {
             "artifact_name": "nvidia_ai.md",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_ai.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_ai.md",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
                         "filename": "nvidia_ai.md",
+                        "mime_type": "application/octet-stream",
+                        "size_bytes": 0,
+                        "timestamp_utc": 1754059921.134557,
+                        "url": "https://www.nvidia.com/en-us/ai-data-science/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 301,
+                        "response_headers": "{\"server\": \"AkamaiGHost\", \"content-length\": \"0\", \"location\": \"https://www.nvidia.com/en-us/solutions/ai/\", \"date\": \"Fri, 01 Aug 2025 14:52:01 GMT\", \"connection\": \"keep-alive\", \"last-modified\": \"Fri, 01 Aug 2025 14:52:01 GMT\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Redirect from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "original_content_type": "application/octet-stream",
+                        "processed_content_type": "application/octet-stream",
+                        "timestamp": "2025-08-01T14:52:01.134446+00:00",
+                        "schema": {
+                            "type": "application/octet-stream",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_products_main.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_products_main.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_products_main.md",
                         "mime_type": "text/markdown",
-                        "size_bytes": 61182,
-                        "timestamp_utc": 1754015638.300142,
-                        "url": "https://www.nvidia.com/en-us/ai/",
+                        "size_bytes": 75177,
+                        "timestamp_utc": 1754059907.469267,
+                        "url": "https://www.nvidia.com/en-us/",
                         "method": "GET",
                         "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
                         "response_status_code": 200,
-                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/ai/this/,/en-us/ai/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 15:35:27 GMT\", \"etag\": \"\\\"7ea25-63b3b640d9959\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web01\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"date\": \"Fri, 01 Aug 2025 02:33:58 GMT\", \"content-length\": \"61247\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/this/,/en-us/\", \"last-modified\": \"Fri, 01 Aug 2025 02:54:33 GMT\", \"etag\": \"\\\"b67d0-63b44e0a74502\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web04\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"content-encoding\": \"gzip\", \"content-length\": \"84901\", \"date\": \"Fri, 01 Aug 2025 14:51:48 GMT\", \"connection\": \"keep-alive\", \"vary\": \"Accept-Encoding\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
                         "original_content_type": "text/html",
                         "processed_content_type": "text/markdown",
-                        "timestamp": "2025-08-01T02:33:58.300039+00:00",
+                        "timestamp": "2025-08-01T14:51:47.469186+00:00",
                         "schema": {
                             "type": "text/markdown",
                             "inferred": false,
@@ -310,7 +427,7 @@
         },
         {
             "artifact_name": "nvidia_about.md",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_about.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_about.md",
             "versions": [
                 {
                     "version": "0",
@@ -318,15 +435,125 @@
                         "filename": "nvidia_about.md",
                         "mime_type": "text/markdown",
                         "size_bytes": 7587,
-                        "timestamp_utc": 1754015613.724945,
+                        "timestamp_utc": 1754059898.387127,
                         "url": "https://www.nvidia.com/en-us/about-nvidia/",
                         "method": "GET",
                         "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
                         "response_status_code": 200,
-                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/about-nvidia/this/,/en-us/about-nvidia/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 17:46:16 GMT\", \"etag\": \"\\\"765f3-63b3d37e32777\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web02\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"date\": \"Fri, 01 Aug 2025 02:33:33 GMT\", \"content-length\": \"50499\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/about-nvidia/this/,/en-us/about-nvidia/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 15:45:04 GMT\", \"etag\": \"W/\\\"765f3-63b3b86631b78\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web03\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"date\": \"Fri, 01 Aug 2025 14:51:39 GMT\", \"transfer-encoding\": \"chunked\", \"connection\": \"keep-alive, Transfer-Encoding\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
                         "original_content_type": "text/html",
                         "processed_content_type": "text/markdown",
-                        "timestamp": "2025-08-01T02:33:33.724857+00:00",
+                        "timestamp": "2025-08-01T14:51:38.387047+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_financial_data.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_financial_data.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_financial_data.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 52821,
+                        "timestamp_utc": 1754059954.282673,
+                        "url": "https://finance.yahoo.com/quote/NVDA/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 200,
+                        "response_headers": "{\"content-type\": \"text/html; charset=utf-8\", \"content-length\": \"331787\", \"date\": \"Fri, 01 Aug 2025 14:48:49 GMT\", \"x-amz-server-side-encryption\": \"AES256\", \"cache-control\": \"max-age=0, private\", \"content-encoding\": \"gzip\", \"server\": \"ATS\", \"vary\": \"X-Failsafe-Cache\", \"x-cache\": \"Hit from cloudfront\", \"x-amz-cf-pop\": \"MCI50-P1\", \"x-amz-cf-id\": \"Q7lvhLv978SaKZj5YXoHTiktUB4j78XklIj_7jN9lq-4MzVsajtMpA==\", \"age\": \"225\", \"strict-transport-security\": \"max-age=31536000\", \"expires\": \"-1\", \"content-security-policy\": \"frame-ancestors 'self' https://*.builtbygirls.com https://*.rivals.com https://*.engadget.com https://*.intheknow.com https://*.autoblog.com https://*.techcrunch.com https://*.yahoo.com https://*.aol.com https://*.huffingtonpost.com https://*.oath.com https://*.search.yahoo.com https://*.pnr.ouryahoo.com https://pnr.ouryahoo.com https://*.search.aol.com https://*.search.huffpost.com https://*.onesearch.com https://*.verizonmedia.com https://*.publishing.oath.com https://*.autoblog.com; sandbox allow-forms allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-presentation; report-uri https://csp.yahoo.com/beacon/csp?src=ats&site=finance&region=US&lang=en-US&device=desktop&yrid=2nh99t5k8pl5h&partner=;\", \"referrer-policy\": \"no-referrer-when-downgrade\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"x-frame-options\": \"SAMEORIGIN\", \"connection\": \"keep-alive\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T14:52:34.282586+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "NVIDIA_Business_Report.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/NVIDIA_Business_Report.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "NVIDIA_Business_Report.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 6224,
+                        "timestamp_utc": 1754059980.702401,
+                        "description": "A comprehensive business report on NVIDIA Corporation including their business areas, products, developments, and industry position.",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_ai_solutions.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_ai_solutions.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_ai_solutions.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 58767,
+                        "timestamp_utc": 1754059925.744274,
+                        "url": "https://www.nvidia.com/en-us/solutions/ai/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 200,
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/solutions/ai/this/,/en-us/solutions/ai/,/en-us/solutions/,/en-us/\", \"last-modified\": \"Thu, 31 Jul 2025 17:45:44 GMT\", \"etag\": \"\\\"79c0a-63b3d35ee710c\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web04\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"date\": \"Fri, 01 Aug 2025 14:52:05 GMT\", \"content-length\": \"58059\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T14:52:05.744180+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_business_overview.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_business_overview.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_business_overview.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 5730,
+                        "timestamp_utc": 1754060106.0536,
+                        "description": "Comprehensive overview of NVIDIA's core business, main products, and industry position",
                         "schema": {
                             "type": "text/markdown",
                             "inferred": false,
@@ -341,7 +568,7 @@
         },
         {
             "artifact_name": "nvidia_wikipedia.md",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_wikipedia.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_wikipedia.md",
             "versions": [
                 {
                     "version": "0",
@@ -349,15 +576,15 @@
                         "filename": "nvidia_wikipedia.md",
                         "mime_type": "text/markdown",
                         "size_bytes": 236328,
-                        "timestamp_utc": 1754015623.771025,
+                        "timestamp_utc": 1754060040.06916,
                         "url": "https://en.wikipedia.org/wiki/Nvidia",
                         "method": "GET",
                         "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
                         "response_status_code": 200,
-                        "response_headers": "{\"date\": \"Thu, 31 Jul 2025 20:59:56 GMT\", \"server\": \"mw-web.eqiad.main-6b7f9796f8-gq8dd\", \"x-content-type-options\": \"nosniff\", \"content-language\": \"en\", \"accept-ch\": \"\", \"last-modified\": \"Thu, 31 Jul 2025 20:50:54 GMT\", \"content-type\": \"text/html; charset=UTF-8\", \"content-encoding\": \"gzip\", \"age\": \"20027\", \"accept-ranges\": \"bytes\", \"vary\": \"Accept-Encoding,X-Subdomain,Cookie,Authorization\", \"x-cache\": \"cp1114 miss, cp1114 hit/37\", \"x-cache-status\": \"hit-front\", \"server-timing\": \"cache;desc=\\\"hit-front\\\", host;desc=\\\"cp1114\\\"\", \"strict-transport-security\": \"max-age=106384710; includeSubDomains; preload\", \"report-to\": \"{ \\\"group\\\": \\\"wm_nel\\\", \\\"max_age\\\": 604800, \\\"endpoints\\\": [{ \\\"url\\\": \\\"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\\\" }] }\", \"nel\": \"{ \\\"report_to\\\": \\\"wm_nel\\\", \\\"max_age\\\": 604800, \\\"failure_fraction\\\": 0.05, \\\"success_fraction\\\": 0.0}\", \"set-cookie\": \"WMF-Last-Access=01-Aug-2025;Path=/;HttpOnly;secure;Expires=Tue, 02 Sep 2025 00:00:00 GMT, WMF-Last-Access-Global=01-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Tue, 02 Sep 2025 00:00:00 GMT, WMF-DP=aa0;Path=/;HttpOnly;secure;Expires=Fri, 01 Aug 2025 00:00:00 GMT, GeoIP=CA:QC:Gatineau:45.58:-75.76:v4; Path=/; secure; Domain=.wikipedia.org, NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600, WMF-Uniq=8EGjehiYUY9EPJUhAeMZcQJCAAAAAFvdz5OnoqwlZ12x0BNm_i7Sh_biTCgt8nOt;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Sat, 01 Aug 2026 00:00:00 GMT\", \"x-client-ip\": \"184.162.88.131\", \"cache-control\": \"private, s-maxage=0, max-age=0, must-revalidate, no-transform\", \"content-length\": \"114092\"}",
+                        "response_headers": "{\"date\": \"Thu, 31 Jul 2025 20:59:56 GMT\", \"server\": \"mw-web.eqiad.main-6b7f9796f8-gq8dd\", \"x-content-type-options\": \"nosniff\", \"content-language\": \"en\", \"accept-ch\": \"\", \"last-modified\": \"Thu, 31 Jul 2025 20:50:54 GMT\", \"content-type\": \"text/html; charset=UTF-8\", \"content-encoding\": \"gzip\", \"age\": \"64444\", \"accept-ranges\": \"bytes\", \"vary\": \"Accept-Encoding,X-Subdomain,Cookie,Authorization\", \"x-cache\": \"cp1114 miss, cp1114 hit/94\", \"x-cache-status\": \"hit-front\", \"server-timing\": \"cache;desc=\\\"hit-front\\\", host;desc=\\\"cp1114\\\"\", \"strict-transport-security\": \"max-age=106384710; includeSubDomains; preload\", \"report-to\": \"{ \\\"group\\\": \\\"wm_nel\\\", \\\"max_age\\\": 604800, \\\"endpoints\\\": [{ \\\"url\\\": \\\"https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0\\\" }] }\", \"nel\": \"{ \\\"report_to\\\": \\\"wm_nel\\\", \\\"max_age\\\": 604800, \\\"failure_fraction\\\": 0.05, \\\"success_fraction\\\": 0.0}\", \"set-cookie\": \"WMF-Last-Access=01-Aug-2025;Path=/;HttpOnly;secure;Expires=Tue, 02 Sep 2025 12:00:00 GMT, WMF-Last-Access-Global=01-Aug-2025;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Tue, 02 Sep 2025 12:00:00 GMT, WMF-DP=aa0;Path=/;HttpOnly;secure;Expires=Sat, 02 Aug 2025 00:00:00 GMT, GeoIP=CA:QC:Gatineau:45.58:-75.76:v4; Path=/; secure; Domain=.wikipedia.org, NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600, WMF-Uniq=oY1KtQYeEOn74Mv4MEAVIgJCAAAAAFvd-xdEEdOA7HYiOUweeH5_eoNpU6Jp4Z_9;Domain=.wikipedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Sat, 01 Aug 2026 00:00:00 GMT\", \"x-client-ip\": \"184.162.88.131\", \"cache-control\": \"private, s-maxage=0, max-age=0, must-revalidate, no-transform\", \"content-length\": \"114092\"}",
                         "original_content_type": "text/html",
                         "processed_content_type": "text/markdown",
-                        "timestamp": "2025-08-01T02:33:43.770940+00:00",
+                        "timestamp": "2025-08-01T14:54:00.069068+00:00",
                         "schema": {
                             "type": "text/markdown",
                             "inferred": false,
@@ -371,148 +598,17 @@
             "creation_timestamp": null
         },
         {
-            "artifact_name": "nvidia_market_cap.png",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_market_cap.png",
+            "artifact_name": "nvidia_executive_summary.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_executive_summary.md",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "nvidia_market_cap.png",
-                        "mime_type": "image/png",
-                        "size_bytes": 43742,
-                        "timestamp_utc": 1754015794.001895,
-                        "description": "Chart generated from Plotly config (json)",
-                        "source_format": "json",
-                        "schema": {
-                            "type": "image/png",
-                            "inferred": false,
-                            "error": null
-                        }
-                    }
-                }
-            ],
-            "created_by_tool": "signal_artifact_for_return",
-            "created_by_call_id": "tooluse_TxhnghjyR2qE3L-_GODmPA",
-            "creation_timestamp": "2025-08-01T02:38:05.506257+00:00"
-        },
-        {
-            "artifact_name": "NVIDIA_Corporation_Research_Report.md_extracted_25e83312.txt",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/NVIDIA_Corporation_Research_Report.md_extracted_25e83312.txt",
-            "versions": [
-                {
-                    "version": "0",
-                    "metadata": {
-                        "filename": "NVIDIA_Corporation_Research_Report.md_extracted_25e83312.txt",
-                        "mime_type": "text/plain",
-                        "size_bytes": 2169,
-                        "timestamp_utc": 1754015835.650547,
-                        "description": "Content extracted/transformed from artifact 'NVIDIA_Corporation_Research_Report.md' (version 0) using goal: 'Extract the most important information about NVIDIA's business, focusing on their main business areas, technology focus, and recent developments. Format it in a way that can be included in an HTML report.'.",
-                        "source_artifact_filename": "NVIDIA_Corporation_Research_Report.md",
-                        "source_artifact_version": 0,
-                        "extraction_goal_used": "Extract the most important information about NVIDIA's business, focusing on their main business areas, technology focus, and recent developments. Format it in a way that can be included in an HTML report.",
-                        "schema": {
-                            "type": "text/plain",
-                            "inferred": false,
-                            "error": null
-                        }
-                    }
-                }
-            ],
-            "created_by_tool": "load_artifact",
-            "created_by_call_id": "tooluse_ZB7bADhxR2SZjTpxeI44ug",
-            "creation_timestamp": "2025-08-01T02:37:19.399518+00:00"
-        },
-        {
-            "artifact_name": "nvidia_enterprise_value.png",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_enterprise_value.png",
-            "versions": [
-                {
-                    "version": "0",
-                    "metadata": {
-                        "filename": "nvidia_enterprise_value.png",
-                        "mime_type": "image/png",
-                        "size_bytes": 44613,
-                        "timestamp_utc": 1754015800.508221,
-                        "description": "Chart generated from Plotly config (json)",
-                        "source_format": "json",
-                        "schema": {
-                            "type": "image/png",
-                            "inferred": false,
-                            "error": null
-                        }
-                    }
-                }
-            ],
-            "created_by_tool": "signal_artifact_for_return",
-            "created_by_call_id": "tooluse_PJVOCIPaR0uWcrQT27BuTQ",
-            "creation_timestamp": "2025-08-01T02:38:08.970374+00:00"
-        },
-        {
-            "artifact_name": "nvidia_news_summary_ac1eb093.txt",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_news_summary_ac1eb093.txt",
-            "versions": [
-                {
-                    "version": "0",
-                    "metadata": {
-                        "filename": "nvidia_news_summary_ac1eb093.txt",
-                        "mime_type": "text/plain",
-                        "size_bytes": 2323,
-                        "timestamp_utc": 1754015728.076622,
-                        "description": "Content extracted/transformed from artifact 'nvidia_newsroom.md' (version 0) using goal: 'Extract information about NVIDIA's latest news, developments, and recent announcements from the newsroom data.'.",
-                        "source_artifact_filename": "nvidia_newsroom.md",
-                        "source_artifact_version": 0,
-                        "extraction_goal_used": "Extract information about NVIDIA's latest news, developments, and recent announcements from the newsroom data.",
-                        "schema": {
-                            "type": "text/plain",
-                            "inferred": false,
-                            "error": null
-                        }
-                    }
-                }
-            ],
-            "created_by_tool": null,
-            "created_by_call_id": null,
-            "creation_timestamp": null
-        },
-        {
-            "artifact_name": "nvidia_ai_summary_23f42360.txt",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_ai_summary_23f42360.txt",
-            "versions": [
-                {
-                    "version": "0",
-                    "metadata": {
-                        "filename": "nvidia_ai_summary_23f42360.txt",
-                        "mime_type": "text/plain",
-                        "size_bytes": 4202,
-                        "timestamp_utc": 1754015703.791098,
-                        "description": "Content extracted/transformed from artifact 'nvidia_ai.md' (version 0) using goal: 'Extract information about NVIDIA's AI technologies, solutions, and innovations. Include details about their latest AI products and platforms.'.",
-                        "source_artifact_filename": "nvidia_ai.md",
-                        "source_artifact_version": 0,
-                        "extraction_goal_used": "Extract information about NVIDIA's AI technologies, solutions, and innovations. Include details about their latest AI products and platforms.",
-                        "schema": {
-                            "type": "text/plain",
-                            "inferred": false,
-                            "error": null
-                        }
-                    }
-                }
-            ],
-            "created_by_tool": null,
-            "created_by_call_id": null,
-            "creation_timestamp": null
-        },
-        {
-            "artifact_name": "NVIDIA_Corporation_Research_Report.md",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/NVIDIA_Corporation_Research_Report.md",
-            "versions": [
-                {
-                    "version": "0",
-                    "metadata": {
-                        "filename": "NVIDIA_Corporation_Research_Report.md",
+                        "filename": "nvidia_executive_summary.md",
                         "mime_type": "text/markdown",
-                        "size_bytes": 5904,
-                        "timestamp_utc": 1754015737.378854,
-                        "description": "Comprehensive research report on NVIDIA Corporation",
+                        "size_bytes": 3154,
+                        "timestamp_utc": 1754060106.0536,
+                        "description": "Executive summary of NVIDIA's business model, key products, and market position",
                         "schema": {
                             "type": "text/markdown",
                             "inferred": false,
@@ -526,17 +622,24 @@
             "creation_timestamp": null
         },
         {
-            "artifact_name": "nvidia_financial_report.html",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_financial_report.html",
+            "artifact_name": "nvidia_investor.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_investor.md",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "nvidia_financial_report.html",
+                        "filename": "nvidia_investor.md",
                         "mime_type": "text/html",
-                        "size_bytes": 9555,
-                        "timestamp_utc": 1754015839.405027,
-                        "description": "HTML report on NVIDIA company with financial analysis and charts",
+                        "size_bytes": 284444,
+                        "timestamp_utc": 1754059917.225252,
+                        "url": "https://www.nvidia.com/en-us/about-nvidia/investor-relations/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 404,
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"content-length\": \"284444\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/page-not-found/this/,/en-us/page-not-found/,/en-us/\", \"last-modified\": \"Fri, 01 Aug 2025 14:26:44 GMT\", \"etag\": \"\\\"4571c-63b4e8c21350e\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web04\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"date\": \"Fri, 01 Aug 2025 14:51:57 GMT\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"cache-control\": \"max-age=0, no-cache, no-store\", \"akamai-cache-status\": \"Miss from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/html",
+                        "timestamp": "2025-08-01T14:51:57.225157+00:00",
                         "schema": {
                             "type": "text/html",
                             "inferred": false,
@@ -545,34 +648,102 @@
                     }
                 }
             ],
-            "created_by_tool": "_notify_artifact_save",
-            "created_by_call_id": "host-notify-c4a0f872-9e6e-4d7b-b619-edbb8ebe6dcb",
-            "creation_timestamp": "2025-08-01T02:37:57.085656+00:00"
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
         },
         {
-            "artifact_name": "nvidia_pe_ratio.png",
-            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-116736f8ceb8464fb58d9f4612edb871/nvidia_pe_ratio.png",
+            "artifact_name": "nvidia_market_position.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_market_position.md",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "nvidia_pe_ratio.png",
-                        "mime_type": "image/png",
-                        "size_bytes": 30769,
-                        "timestamp_utc": 1754015808.398238,
-                        "description": "Chart generated from Plotly config (json)",
-                        "source_format": "json",
+                        "filename": "nvidia_market_position.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 12125,
+                        "timestamp_utc": 1754060106.048901,
+                        "url": "https://companiesmarketcap.com/nvidia/marketcap/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 200,
+                        "response_headers": "{\"date\": \"Fri, 01 Aug 2025 14:55:07 GMT\", \"content-type\": \"text/html; charset=UTF-8\", \"content-length\": \"16261\", \"connection\": \"keep-alive\", \"server\": \"cloudflare\", \"cf-cache-status\": \"DYNAMIC\", \"nel\": \"{\\\"report_to\\\":\\\"cf-nel\\\",\\\"success_fraction\\\":0.0,\\\"max_age\\\":604800}\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"report-to\": \"{\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800,\\\"endpoints\\\":[{\\\"url\\\":\\\"https://a.nel.cloudflare.com/report/v4?s=mMHKKlm8ThXwjgow41%2FCvPW2jRYBUERl%2B9CEQHWDEZiG1Q2FfhHOACMNtz7FCrj61ZKWPPf8o%2FspkDZeyu%2BO1IJqKvPYhPYgsNIBGeiVO2Y6qpWVAg%3D%3D\\\"}]}\", \"cf-ray\": \"96862cb44c06ac46-YYZ\", \"alt-svc\": \"h3=\\\":443\\\"; ma=86400\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T14:55:06.048812+00:00",
                         "schema": {
-                            "type": "image/png",
+                            "type": "text/markdown",
                             "inferred": false,
                             "error": null
                         }
                     }
                 }
             ],
-            "created_by_tool": "signal_artifact_for_return",
-            "created_by_call_id": "tooluse_2tG8a-DLQc64QBrqtBGDaQ",
-            "creation_timestamp": "2025-08-01T02:38:12.630584+00:00"
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_financial.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_financial.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_financial.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 140,
+                        "timestamp_utc": 1754059949.546904,
+                        "url": "https://finance.yahoo.com/quote/NVDA",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 301,
+                        "response_headers": "{\"date\": \"Fri, 01 Aug 2025 14:52:29 GMT\", \"strict-transport-security\": \"max-age=31536000\", \"server\": \"ATS\", \"cache-control\": \"no-store\", \"content-type\": \"text/html\", \"content-language\": \"en\", \"content-security-policy\": \"frame-ancestors 'self' https://*.builtbygirls.com https://*.rivals.com https://*.engadget.com https://*.intheknow.com https://*.autoblog.com https://*.techcrunch.com https://*.yahoo.com https://*.aol.com https://*.huffingtonpost.com https://*.oath.com https://*.search.yahoo.com https://*.pnr.ouryahoo.com https://pnr.ouryahoo.com https://*.search.aol.com https://*.search.huffpost.com https://*.onesearch.com https://*.verizonmedia.com https://*.publishing.oath.com https://*.autoblog.com; sandbox allow-forms allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox allow-presentation; report-uri https://csp.yahoo.com/beacon/csp?src=ats&site=finance&region=US&lang=en-US&device=desktop&yrid=2cju421k8pl5d&partner=;\", \"referrer-policy\": \"no-referrer-when-downgrade\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"x-frame-options\": \"SAMEORIGIN\", \"location\": \"https://finance.yahoo.com/quote/NVDA/\", \"content-length\": \"4511\", \"age\": \"0\", \"connection\": \"keep-alive\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T14:52:29.546822+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "nvidia_geforce.md",
+            "directory": "/tmp/samv2/eval-65d672c3-2c9d-4df8-9c66-7681c40a1d40/eval-user/rest-session-efd1a9229ae44f34a1f4e29e8dff269b/nvidia_geforce.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "nvidia_geforce.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 52596,
+                        "timestamp_utc": 1754059934.38469,
+                        "url": "https://www.nvidia.com/en-us/geforce/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 200,
+                        "response_headers": "{\"content-type\": \"text/html; charset=UTF-8\", \"server\": \"Apache\", \"edge-cache-tag\": \"/en-us/geforce/this/,/en-us/geforce/,/en-us/\", \"last-modified\": \"Fri, 01 Aug 2025 14:33:28 GMT\", \"etag\": \"\\\"810e0-63b4ea42d3aa6\\\"\", \"accept-ranges\": \"bytes\", \"content-security-policy\": \"frame-ancestors 'self' *.awsapps.nvidia.com *.nvidia.com https://widget.stackla.com https://app-sj14.marketo.com https://www.youtube.com https://www.quadro-selector.com http://player.youku.com https://player.youku.com https://live.nvidia-china.com https://www.google.com *.nvidia.cn https://events.rainfocus.com https://www.twitch.tv https://store.nvidia.ru https://store.nvidia.in *.geforcenow.com https://salespro.hpe.com https://hpe.seismic.com https://cms.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://cms.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud https://events.rainfocus.com https://docs.nvidia-docs-uat.lower.k3.m1.brightspot.cloud https://docs.nvidia-docs-qa3.lower.k3.m1.brightspot.cloud;\", \"serverid\": \"prod-web02\", \"x-content-type-options\": \"nosniff\", \"x-xss-protection\": \"1; mode=block\", \"access-control-allow-origin\": \"*\", \"vary\": \"Accept-Encoding\", \"content-encoding\": \"gzip\", \"date\": \"Fri, 01 Aug 2025 14:52:15 GMT\", \"content-length\": \"58617\", \"connection\": \"keep-alive\", \"set-cookie\": \"c_code=CA; Path=/; Secure\", \"akamai-cache-status\": \"Hit from child\", \"x-cdn-version\": \"v381\", \"x-cdn\": \"akam\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T14:52:14.384607+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
         }
     ],
     "errors": []

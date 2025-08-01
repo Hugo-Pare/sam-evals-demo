@@ -3,62 +3,35 @@
     "run_id": "run_1",
     "query": "Summarize this page: https://solace.com/products/agent-mesh/",
     "target_agent": "OrchestratorAgent",
-    "namespace": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d",
-    "session_id": "rest-session-b2c4b4bd15b94d409c501e3a19cab484",
+    "namespace": "eval-e74a87f1-36cc-4d95-be5c-749df88c2890",
+    "session_id": "rest-session-80e046e8013d457b97fb6b9bd94d4830",
     "final_status": "completed",
-    "final_message": "The summary of the provided webpage has been generated and is available as an artifact: \u00abartifact_content:solace_agent_mesh_summary.md\u00bb",
-    "start_time": "2025-07-31T22:27:16.242171",
-    "end_time": "2025-08-01T02:27:44.266551+00:00",
-    "duration_seconds": 28.02438,
+    "final_message": "The WebAgent successfully fetched and summarized the content of the provided URL.\n\nHere's the summary of the Solace Agent Mesh page:\n\n**Key Aspects:**\n*   Event-Driven Architecture\n*   Dynamic Orchestration\n*   Governance and Access Control (Gateways)\n*   Intelligent Data Management\n*   Agent Integration\n*   AI Service\n\n**Purpose:**\nTo simplify and accelerate the development and deployment of intelligent, extensible, and well-governed AI-powered applications that leverage autonomous AI agents.\n\n**Benefits for an IT Professional:**\n*   Enterprise-Grade Scalability & Reliability\n*   Enhanced Security & Governance\n*   Accelerated Time to Innovation\n*   Improved Operational Efficiency\n*   Optimized Resource Utilization\n*   Real-time Responsiveness\n*   Future-Proofing\n\nThe summary is saved as `solace_agent_mesh_summary_1c95ddf7.txt` and has been signaled for return.",
+    "start_time": "2025-08-01T10:45:20.477222",
+    "end_time": "2025-08-01T14:45:52.882693+00:00",
+    "duration_seconds": 32.405471,
     "tool_calls": [],
     "input_artifacts": [],
     "output_artifacts": [
         {
-            "artifact_name": "solace_agent_mesh.md_extracted_39f03197.txt",
-            "directory": "/tmp/samv2/eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/eval-user/rest-session-b2c4b4bd15b94d409c501e3a19cab484/solace_agent_mesh.md_extracted_39f03197.txt",
+            "artifact_name": "solace_agent_mesh_page.md",
+            "directory": "/tmp/samv2/eval-e74a87f1-36cc-4d95-be5c-749df88c2890/eval-user/rest-session-80e046e8013d457b97fb6b9bd94d4830/solace_agent_mesh_page.md",
             "versions": [
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "solace_agent_mesh.md_extracted_39f03197.txt",
-                        "mime_type": "text/plain",
-                        "size_bytes": 2751,
-                        "timestamp_utc": 1754015254.197603,
-                        "description": "Content extracted/transformed from artifact 'solace_agent_mesh.md' (version 0) using goal: 'Summarize the content of this document focusing on what Solace Agent Mesh is, its key features, and its benefits.'.",
-                        "source_artifact_filename": "solace_agent_mesh.md",
-                        "source_artifact_version": 0,
-                        "extraction_goal_used": "Summarize the content of this document focusing on what Solace Agent Mesh is, its key features, and its benefits.",
-                        "schema": {
-                            "type": "text/plain",
-                            "inferred": false,
-                            "error": null
-                        }
-                    }
-                }
-            ],
-            "created_by_tool": null,
-            "created_by_call_id": null,
-            "creation_timestamp": null
-        },
-        {
-            "artifact_name": "solace_agent_mesh.md",
-            "directory": "/tmp/samv2/eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/eval-user/rest-session-b2c4b4bd15b94d409c501e3a19cab484/solace_agent_mesh.md",
-            "versions": [
-                {
-                    "version": "0",
-                    "metadata": {
-                        "filename": "solace_agent_mesh.md",
+                        "filename": "solace_agent_mesh_page.md",
                         "mime_type": "text/markdown",
-                        "size_bytes": 15474,
-                        "timestamp_utc": 1754015244.368278,
+                        "size_bytes": 15426,
+                        "timestamp_utc": 1754059530.278423,
                         "url": "https://solace.com/products/agent-mesh/",
                         "method": "GET",
                         "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
                         "response_status_code": 200,
-                        "response_headers": "{\"connection\": \"keep-alive\", \"content-length\": \"71425\", \"access-control-allow-headers\": \"Content-Type, Authorization\", \"access-control-allow-methods\": \"GET,POST\", \"cache-control\": \"public, max-age=120\", \"content-encoding\": \"gzip\", \"content-security-policy\": \"upgrade-insecure-requests;\", \"content-type\": \"text/html; charset=UTF-8\", \"cross-origin-embedder-policy\": \"unsafe-none; report-to='default'\", \"cross-origin-embedder-policy-report-only\": \"unsafe-none; report-to='default'\", \"cross-origin-opener-policy\": \"unsafe-none\", \"cross-origin-opener-policy-report-only\": \"unsafe-none; report-to='default'\", \"cross-origin-resource-policy\": \"cross-origin\", \"permissions-policy\": \"accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(self), encrypted-media=(), fullscreen=*, geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=*, picture-in-picture=*, publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=*, usb=(), xr-spatial-tracking=(), gamepad=(), serial=()\", \"referrer-policy\": \"strict-origin-when-cross-origin\", \"server\": \"nginx\", \"strict-transport-security\": \"max-age=63072000; includeSubDomains; preload\", \"x-content-security-policy\": \"default-src 'self'; img-src *; media-src * data:;\", \"x-content-type-options\": \"nosniff\", \"x-frame-options\": \"DENY\", \"x-pantheon-styx-hostname\": \"styx-fe4-a-8555c9b7f7-snkxg\", \"x-permitted-cross-domain-policies\": \"none\", \"x-styx-req-id\": \"0de82719-6e7f-11f0-bbb0-56520e86d18d\", \"x-tec-api-origin\": \"https://solace.com\", \"x-tec-api-root\": \"https://solace.com/wp-json/tribe/events/v1/\", \"x-tec-api-version\": \"v1\", \"age\": \"0\", \"accept-ranges\": \"bytes\", \"via\": \"1.1 varnish, 1.1 varnish, 1.1 varnish, 1.1 varnish\", \"date\": \"Fri, 01 Aug 2025 02:27:24 GMT\", \"x-served-by\": \"cache-chi-klot8100029-CHI, cache-yul1970043-YUL, cache-yul1970061-YUL, cache-yul1970061-YUL\", \"x-cache\": \"MISS, MISS, MISS, MISS\", \"x-cache-hits\": \"0, 0, 0, 0\", \"x-timer\": \"S1754015242.140401,VS0,VE2140\", \"vary\": \"Accept-Encoding, Cookie, Cookie\"}",
+                        "response_headers": "{\"connection\": \"keep-alive\", \"content-length\": \"71439\", \"access-control-allow-headers\": \"Content-Type, Authorization\", \"access-control-allow-methods\": \"GET,POST\", \"cache-control\": \"public, max-age=120\", \"content-encoding\": \"gzip\", \"content-security-policy\": \"upgrade-insecure-requests;\", \"content-type\": \"text/html; charset=UTF-8\", \"cross-origin-embedder-policy\": \"unsafe-none; report-to='default'\", \"cross-origin-embedder-policy-report-only\": \"unsafe-none; report-to='default'\", \"cross-origin-opener-policy\": \"unsafe-none\", \"cross-origin-opener-policy-report-only\": \"unsafe-none; report-to='default'\", \"cross-origin-resource-policy\": \"cross-origin\", \"permissions-policy\": \"accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(self), encrypted-media=(), fullscreen=*, geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=*, picture-in-picture=*, publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=*, usb=(), xr-spatial-tracking=(), gamepad=(), serial=()\", \"referrer-policy\": \"strict-origin-when-cross-origin\", \"server\": \"nginx\", \"strict-transport-security\": \"max-age=63072000; includeSubDomains; preload\", \"x-content-security-policy\": \"default-src 'self'; img-src *; media-src * data:;\", \"x-content-type-options\": \"nosniff\", \"x-frame-options\": \"DENY\", \"x-pantheon-styx-hostname\": \"styx-fe4-b-77f5cb5475-hbg7m\", \"x-permitted-cross-domain-policies\": \"none\", \"x-styx-req-id\": \"2ac27343-6ee6-11f0-80a7-66a4728ddf04\", \"x-tec-api-origin\": \"https://solace.com\", \"x-tec-api-root\": \"https://solace.com/wp-json/tribe/events/v1/\", \"x-tec-api-version\": \"v1\", \"age\": \"0\", \"accept-ranges\": \"bytes\", \"via\": \"1.1 varnish, 1.1 varnish, 1.1 varnish, 1.1 varnish\", \"date\": \"Fri, 01 Aug 2025 14:45:31 GMT\", \"x-served-by\": \"cache-chi-klot8100029-CHI, cache-yul1970043-YUL, cache-yul1970052-YUL, cache-yul1970052-YUL\", \"x-cache\": \"MISS, MISS, MISS, MISS\", \"x-cache-hits\": \"0, 0, 0, 0\", \"x-timer\": \"S1754059529.712426,VS0,VE2377\", \"vary\": \"Accept-Encoding, Cookie, Cookie\"}",
                         "original_content_type": "text/html",
                         "processed_content_type": "text/markdown",
-                        "timestamp": "2025-08-01T02:27:24.368164+00:00",
+                        "timestamp": "2025-08-01T14:45:30.277709+00:00",
                         "schema": {
                             "type": "text/markdown",
                             "inferred": false,
@@ -72,34 +45,22 @@
             "creation_timestamp": null
         },
         {
-            "artifact_name": "solace_agent_mesh_summary.md",
-            "directory": "/tmp/samv2/eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/eval-user/rest-session-b2c4b4bd15b94d409c501e3a19cab484/solace_agent_mesh_summary.md",
+            "artifact_name": "solace_agent_mesh_summary_1c95ddf7.txt",
+            "directory": "/tmp/samv2/eval-e74a87f1-36cc-4d95-be5c-749df88c2890/eval-user/rest-session-80e046e8013d457b97fb6b9bd94d4830/solace_agent_mesh_summary_1c95ddf7.txt",
             "versions": [
-                {
-                    "version": "1",
-                    "metadata": {
-                        "filename": "solace_agent_mesh_summary.md",
-                        "mime_type": "text/markdown",
-                        "size_bytes": 2752,
-                        "timestamp_utc": 1754015254.202591,
-                        "description": "A summary of the Solace Agent Mesh webpage, including its purpose, key features, and benefits.",
-                        "schema": {
-                            "type": "text/markdown",
-                            "inferred": false,
-                            "error": null
-                        }
-                    }
-                },
                 {
                     "version": "0",
                     "metadata": {
-                        "filename": "solace_agent_mesh_summary.md",
-                        "mime_type": "text/markdown",
-                        "size_bytes": 2752,
-                        "timestamp_utc": 1754015254.202591,
-                        "description": "A summary of the Solace Agent Mesh webpage, including its purpose, key features, and benefits.",
+                        "filename": "solace_agent_mesh_summary_1c95ddf7.txt",
+                        "mime_type": "text/plain",
+                        "size_bytes": 3875,
+                        "timestamp_utc": 1754059544.293053,
+                        "description": "Content extracted/transformed from artifact 'solace_agent_mesh_page.md' (version 0) using goal: 'Summarize the key aspects of Solace Agent Mesh, its purpose, and benefits for an IT professional.'.",
+                        "source_artifact_filename": "solace_agent_mesh_page.md",
+                        "source_artifact_version": 0,
+                        "extraction_goal_used": "Summarize the key aspects of Solace Agent Mesh, its purpose, and benefits for an IT professional.",
                         "schema": {
-                            "type": "text/markdown",
+                            "type": "text/plain",
                             "inferred": false,
                             "error": null
                         }
