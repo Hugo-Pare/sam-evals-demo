@@ -1,6 +1,6 @@
 # Solace Agent Mesh (SAM) Evaluation Framework
 
-This repository contains a comprehensive evaluation framework for the Solace Agent Mesh (SAM). The primary focus of this framework is to evaluate the behavior of agents. It also provides tools for benchmarking Large Language Models (LLMs) within the SAM ecosystem.
+This repository contains a comprehensive demonstration of the Solace Agent Mesh (SAM) evaluation framework. The primary focus of this framework is to evaluate the behavior of agents. It also provides tools for benchmarking Large Language Models (LLMs) within the SAM ecosystem.
 
 ## Features
 
