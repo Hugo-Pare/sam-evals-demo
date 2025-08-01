@@ -1,0 +1,8 @@
+{
+    "task-a3102128fadf4695bb711fe6e14727fb": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/simple_hello_world/run_1",
+    "task-37dc8f0c346740afa7400aae7bd569a6": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/web_search_summary/run_1",
+    "task-86570e4b49f542a0abd2e5c17f2366e4": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/convert_pdf_to_markdown/run_1",
+    "task-9870f6213a824c2cb7c9b87feeba3218": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_image/run_1",
+    "task-3402214fdf1a49bba81f71f14acfa1e6": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_mermaid_diagram/run_1",
+    "task-4ce88dafc54f46ddbe66108a39c4a317": "/home/hugopare/sam-evals-demo/results/sam_eval_test/gemini-2.5-flash/generate_complex_report/run_1"
+}

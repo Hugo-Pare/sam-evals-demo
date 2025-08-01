@@ -1,0 +1,17 @@
+{
+    "test_case_id": "simple_hello_world",
+    "run_id": "run_1",
+    "query": "Hello, world!",
+    "target_agent": "OrchestratorAgent",
+    "namespace": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7",
+    "session_id": "rest-session-b4fec72e43234ee6b6343b35a9fd2451",
+    "final_status": "completed",
+    "final_message": "# Hello!\n\nWelcome to Agent Mesh! I'm here to assist you with a variety of tasks. Is there something specific I can help you with today? \n\nI can:\n- Generate images\n- Create visualizations and diagrams\n- Convert various file formats to markdown\n- Fetch information from web URLs\n- Analyze data and create charts\n- Generate reports and other text content\n\nPlease let me know what you'd like assistance with, and I'll be happy to help!",
+    "start_time": "2025-07-31T22:29:31.612587",
+    "end_time": "2025-08-01T02:29:36.427917+00:00",
+    "duration_seconds": 4.81533,
+    "tool_calls": [],
+    "input_artifacts": [],
+    "output_artifacts": [],
+    "errors": []
+}

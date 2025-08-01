@@ -2,12 +2,18 @@
     "test_case_id": "generate_complex_report",
     "category": "Artifacts",
     "description": "A test case to evaluate the agent's complex report generation and agent delegation capabilities.",
-    "query": "Research the current state of AI/ML tools market by gathering data from 2 or 3 industry websites and news sources. Create process flow diagrams showing typical AI implementation workflows, generate infographic-style visuals for statistics, and compile everything into a market analysis HTML report with charts and visual summaries.",
+    "query": "Research what the company NVIDIA does and create an HTML report containing their financials over time, using the data from the csv file to generate graphs.",
     "target_agent": "OrchestratorAgent",
+    "artifacts": [
+        {
+            "type": "file",
+            "path": "artifacts/financial_data.csv"
+        }
+    ],
     "wait_time": 300,
     "evaluation": {
         "expected_tools": [],
-        "expected_response": "Here is the market analysis report for the AI/ML tools.",
+        "expected_response": "Here is the report on NVIDIA's financials.",
         "criterion": "Evaluate if the agent provides the correct report."
     }
 }

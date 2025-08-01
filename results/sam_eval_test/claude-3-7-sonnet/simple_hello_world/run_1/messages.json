@@ -1,0 +1,99 @@
+[
+    {
+        "topic": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/a2a/v1/agent/request/OrchestratorAgent",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "9731e9531c2340b698bbf6ef78f4fb07",
+            "method": "tasks/sendSubscribe",
+            "params": {
+                "id": "task-96340c22f212427b9fe02b4bc5c79dfb",
+                "sessionId": "rest-session-b4fec72e43234ee6b6343b35a9fd2451",
+                "message": {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "type": "text",
+                            "text": "Request received by gateway at: 2025-08-01T02:29:31.612587+00:00"
+                        },
+                        {
+                            "type": "text",
+                            "text": "Hello, world!"
+                        }
+                    ]
+                },
+                "acceptedOutputModes": [
+                    "text",
+                    "data",
+                    "file"
+                ],
+                "metadata": {
+                    "system_purpose": "The system is an AI Chatbot with agentic capabilities. It will use the agents available to provide information, reasoning and general assistance for the users in this system. **Always return useful artifacts and files that you create to the user.** Provide a status update before each tool call. Your external name is Agent Mesh.    \n",
+                    "response_format": "Responses should be clear, concise, and professionally toned.  Format responses to the user in Markdown using appropriate formatting.\n"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/a2a/v1/gateway/status/gdk-gateway-8f454d5e/task-96340c22f212427b9fe02b4bc5c79dfb",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "9731e9531c2340b698bbf6ef78f4fb07",
+            "result": {
+                "id": "task-96340c22f212427b9fe02b4bc5c79dfb",
+                "status": {
+                    "state": "working",
+                    "message": {
+                        "role": "agent",
+                        "parts": [],
+                        "metadata": {
+                            "type": "llm_response",
+                            "data": {
+                                "content": {
+                                    "parts": [
+                                        {
+                                            "text": "# Hello!\n\nWelcome to Agent Mesh! I'm here to assist you with a variety of tasks. Is there something specific I can help you with today? \n\nI can:\n- Generate images\n- Create visualizations and diagrams\n- Convert various file formats to markdown\n- Fetch information from web URLs\n- Analyze data and create charts\n- Generate reports and other text content\n\nPlease let me know what you'd like assistance with, and I'll be happy to help!"
+                                        }
+                                    ],
+                                    "role": "model"
+                                },
+                                "partial": false
+                            }
+                        }
+                    },
+                    "timestamp": "2025-08-01T02:29:36.423092+00:00"
+                },
+                "final": true,
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/a2a/v1/gateway/response/gdk-gateway-8f454d5e/task-96340c22f212427b9fe02b4bc5c79dfb",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "9731e9531c2340b698bbf6ef78f4fb07",
+            "result": {
+                "id": "task-96340c22f212427b9fe02b4bc5c79dfb",
+                "sessionId": "rest-session-b4fec72e43234ee6b6343b35a9fd2451",
+                "status": {
+                    "state": "completed",
+                    "message": {
+                        "role": "agent",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "text": "# Hello!\n\nWelcome to Agent Mesh! I'm here to assist you with a variety of tasks. Is there something specific I can help you with today? \n\nI can:\n- Generate images\n- Create visualizations and diagrams\n- Convert various file formats to markdown\n- Fetch information from web URLs\n- Analyze data and create charts\n- Generate reports and other text content\n\nPlease let me know what you'd like assistance with, and I'll be happy to help!"
+                            }
+                        ]
+                    },
+                    "timestamp": "2025-08-01T02:29:36.427917+00:00"
+                },
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    }
+]

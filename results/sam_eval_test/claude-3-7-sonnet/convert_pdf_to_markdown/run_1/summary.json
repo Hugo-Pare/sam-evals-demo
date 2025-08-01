@@ -1,0 +1,164 @@
+{
+    "test_case_id": "convert_pdf_to_markdown",
+    "run_id": "run_1",
+    "query": "Please convert the attached PDF file to Markdown.",
+    "target_agent": "OrchestratorAgent",
+    "namespace": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7",
+    "session_id": "rest-session-8fb97a7b9f8e430f96f3813a74f96df9",
+    "final_status": "completed",
+    "final_message": "# PDF to Markdown Conversion Results\n\nI attempted to convert your uploaded PDF file (`sample.pdf`) to Markdown format using the MarkitdownAgent. Unfortunately, the conversion was unsuccessful and resulted in an empty file.\n\n## What Happened\n\nDespite multiple conversion attempts, the PDF content could not be properly extracted and converted to Markdown. This is likely due to one of the following reasons:\n\n1. **Image-based PDF**: The PDF may primarily contain scanned images rather than actual text\n2. **Protected PDF**: The file might have security settings that prevent content extraction\n3. **Non-standard structure**: The PDF may have formatting that the conversion tools cannot interpret\n4. **Potential file corruption**: The PDF structure might be damaged in some way\n\n## What Was Created\n\nI've returned two artifacts:\n\n1. **sample_converted.md** - This is the attempted conversion output, but it contains no content as the conversion was unsuccessful.\n2. **pdf_conversion_report.md** - This report explains the situation in detail, including possible reasons for the conversion failure and recommendations.\n\n## Next Steps\n\nIf you still need to convert this PDF to Markdown, you might try:\n\n- Using specialized PDF conversion software outside this system\n- If the PDF is image-based, using OCR (Optical Character Recognition) software\n- Converting the document to another format first (such as Word) before attempting Markdown conversion\n- Checking if the PDF can be opened and read normally in PDF viewers to ensure it isn't corrupted\n\nWould you like me to try a different approach with this PDF file?",
+    "start_time": "2025-07-31T22:30:07.341084",
+    "end_time": "2025-08-01T02:32:03.348769+00:00",
+    "duration_seconds": 116.007685,
+    "tool_calls": [
+        {
+            "call_id": "tooluse_j4coJVrbReypeRUZGn1UdQ",
+            "agent": "OrchestratorAgent",
+            "tool_name": "signal_artifact_for_return",
+            "arguments": {
+                "version": 0,
+                "filename": "pdf_conversion_report.md"
+            },
+            "timestamp": "2025-08-01T02:31:54.244025+00:00"
+        }
+    ],
+    "input_artifacts": [
+        {
+            "artifact_name": "sample.pdf",
+            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-8fb97a7b9f8e430f96f3813a74f96df9/sample.pdf",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "sample.pdf",
+                        "mime_type": "application/pdf",
+                        "size_bytes": 202199,
+                        "timestamp_utc": 1754015407.337225,
+                        "source": "rest_gateway_upload",
+                        "schema": {
+                            "type": "application/pdf",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "type": "file",
+            "source_path": "artifacts/sample.pdf"
+        }
+    ],
+    "output_artifacts": [
+        {
+            "artifact_name": "sample.pdf",
+            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-8fb97a7b9f8e430f96f3813a74f96df9/sample.pdf",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "sample.pdf",
+                        "mime_type": "application/pdf",
+                        "size_bytes": 202199,
+                        "timestamp_utc": 1754015407.337225,
+                        "source": "rest_gateway_upload",
+                        "schema": {
+                            "type": "application/pdf",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "pdf_conversion_report.md",
+            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-8fb97a7b9f8e430f96f3813a74f96df9/pdf_conversion_report.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "pdf_conversion_report.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 1110,
+                        "timestamp_utc": 1754015482.845291,
+                        "description": "Report on PDF conversion attempt",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": "signal_artifact_for_return",
+            "created_by_call_id": "tooluse_j4coJVrbReypeRUZGn1UdQ",
+            "creation_timestamp": "2025-08-01T02:31:54.244025+00:00"
+        },
+        {
+            "artifact_name": "sample_converted.md",
+            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-8fb97a7b9f8e430f96f3813a74f96df9/sample_converted.md",
+            "versions": [
+                {
+                    "version": "1",
+                    "metadata": {
+                        "filename": "sample_converted.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 0,
+                        "timestamp_utc": 1754015445.222523,
+                        "description": "Markdown conversion of 'sample.pdf'",
+                        "source_artifact": "sample.pdf",
+                        "source_artifact_version": 0,
+                        "conversion_tool": "MarkItDown",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                },
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "sample_converted.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 0,
+                        "timestamp_utc": 1754015420.534931,
+                        "description": "Markdown conversion of 'sample.pdf'",
+                        "source_artifact": "sample.pdf",
+                        "source_artifact_version": 0,
+                        "conversion_tool": "MarkItDown",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                },
+                {
+                    "version": "2",
+                    "metadata": {
+                        "filename": "sample_converted.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 0,
+                        "timestamp_utc": 1754015464.837349,
+                        "description": "Markdown conversion of 'sample.pdf'",
+                        "source_artifact": "sample.pdf",
+                        "source_artifact_version": 0,
+                        "conversion_tool": "MarkItDown",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        }
+    ],
+    "errors": []
+}

@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM-Evals Benchmark Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@sgratzl/chartjs-chart-boxplot"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+        
+        .section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #27ae60;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .info-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 1.5rem 0;
+        }
+        
+        .model-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.4rem;
+        }
+        
+        .model-tag {
+            background: #27ae60;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+        
+        .test-files {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 5px;
+            margin-top: 0.8rem;
+        }
+        
+        .test-files ul {
+            margin: 0.4rem 0 0 0;
+            padding-left: 1.2rem;
+        }
+        
+        .test-files li {
+            font-size: 0.9rem;
+        }
+        
+        .evaluation-status {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .enabled {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .disabled {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .breakdown-container {
+            margin-top: 1rem;
+        }
+        
+        .category-section {
+            margin-bottom: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .category-header {
+            background: #f8f9fa;
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+        
+        .category-header:hover {
+            background: #e9ecef;
+        }
+        
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        .category-toggle {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            transition: transform 0.2s;
+        }
+        
+        .category-content {
+            display: none;
+            padding: 0.8rem;
+        }
+        
+        .category-content.active {
+            display: block;
+        }
+        
+        .test-item {
+            background: #f8f9fa;
+            padding: 0.4rem 0.6rem;
+            margin-bottom: 0.3rem;
+            border-radius: 4px;
+            border-left: 3px solid #6c757d;
+            font-size: 0.85rem;
+        }
+        
+        .test-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .test-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+        
+        .test-description {
+            font-size: 0.8rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .model-scores {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 0.3rem;
+        }
+        
+        .model-score {
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .score-high {
+            background: #27ae60; /* Green background for scores >= 0.7 */
+        }
+        
+        .score-medium {
+            background: #f39c12; /* Yellow/Orange background for scores 0.4-0.69 */
+        }
+        
+        .score-low {
+            background: #e74c3c; /* Red background for scores < 0.4 */
+        }
+        
+        /* Detailed breakdown styles */
+        .model-result {
+            padding: 0.6rem;
+            margin-bottom: 0;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+        
+        .model-result.score-high {
+            background: #27ae60;
+            border-color: #1e8449;
+        }
+        
+        .model-result.score-medium {
+            background: #f39c12;
+            border-color: #d68910;
+        }
+        
+        .model-result.score-low {
+            background: #e74c3c;
+            border-color: #c0392b;
+        }
+        
+        .model-result .model-score {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .model-result .score-value {
+            background: rgba(255,255,255,0.9);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        .model-result .avg-duration {
+            background: rgba(255,255,255,0.9);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        .score-value {
+            color: #2c3e50 !important;
+            font-weight: 600 !important;
+        }
+        
+        .success-rate {
+            color: #27ae60 !important;
+        }
+        
+        .avg-duration {
+            color: #2c3e50 !important;
+            font-weight: 600 !important;
+        }
+        
+        .run-count {
+            color: #6c757d !important;
+            font-style: italic;
+        }
+        
+        .model-results {
+            margin-top: 0.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .model-scores {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .test-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.2rem;
+            }
+        }
+    
+
+/* Modal Styles */
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 2% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 1rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.modal-description {
+    font-size: 1rem;
+    color: #6c757d;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #2c3e50;
+}
+
+.modal-charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.modal-chart-container {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.modal-chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.modal-chart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.chart-toggle-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chart-toggle-btn:hover {
+    background: #219a52;
+}
+
+.chart-flip-container {
+    position: relative;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.chart-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+.chart-front {
+    transform: rotateY(0deg);
+}
+
+.chart-back {
+    transform: rotateY(180deg);
+}
+
+.chart-flip-container.flipped .chart-front {
+    transform: rotateY(-180deg);
+}
+
+.chart-flip-container.flipped .chart-back {
+    transform: rotateY(0deg);
+}
+
+.test-item {
+    cursor: pointer !important;
+    transition: background-color 0.2s;
+}
+
+.test-item:hover {
+    background: #e9ecef !important;
+}
+
+/* Make test names clickable but not hyperlinked */
+.test-name {
+    cursor: pointer !important;
+}
+
+.test-name:hover {
+    color: #2c3e50 !important;
+    font-weight: 700 !important;
+}
+
+.modal-runs-section {
+    margin-top: 2rem;
+    border-top: 2px solid #e9ecef;
+    padding-top: 1.5rem;
+}
+
+.runs-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.runs-section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.runs-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.runs-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.runs-filter label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #495057;
+}
+
+.runs-filter select {
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    background-color: white;
+    color: #495057;
+    cursor: pointer;
+}
+
+.runs-filter select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.runs-count {
+    font-size: 0.875rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.runs-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.run-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.run-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.run-model {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.run-scores {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.run-score {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+}
+
+.run-score.response {
+    background: #007bff;
+}
+
+.run-score.tool {
+    background: #6f42c1;
+}
+
+.run-score.llm {
+    background: #28a745;
+}
+
+.run-reasoning {
+    margin-top: 0.75rem;
+}
+
+.reasoning-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.reasoning-text {
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.5;
+    background: white;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+        padding: 1rem;
+    }
+    
+    .modal-charts {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .chart-flip-container {
+        height: 250px;
+    }
+    
+    .modal-chart-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+    
+    .chart-toggle-btn {
+        width: 100%;
+    }
+    
+    .runs-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .runs-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .run-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .run-scores {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}
+
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>SAM-Evals Benchmark Report</h1>
+    </div>
+<div class="section">
+    <h2>📊 Benchmark Run Information</h2>
+    <div class="info-grid">
+        <div class="info-item">
+            <strong>Time of Execution</strong>
+            July 31, 2025 at 10:38 PM
+        </div>
+        <div class="info-item">
+            <strong>Number of Runs</strong>
+            1 run per test case
+        </div>
+        <div class="info-item">
+            <strong>Total Test Cases</strong>
+            6
+        </div>
+        <div class="info-item">
+            <strong>Evaluation Duration</strong>
+            11 minutes 59 seconds
+        </div>
+    </div>
+
+    <div class="info-item">
+        <strong>Tested Models (2)</strong>
+        <div class="model-list">
+            <span class="model-tag">claude-3-7-sonnet</span><span class="model-tag">gemini-2.5-flash</span>
+        </div>
+    </div>
+
+    <div class="test-files">
+        <strong>Test Cases Executed:</strong>
+        <ul>
+            <li>convert_pdf_to_markdown.test.json</li><li>generate_complex_report.test.json</li><li>generate_image.test.json</li><li>generate_mermaid_diagram.test.json</li><li>simple_hello_world.test.json</li><li>web_search_summary.test.json</li>
+        </ul>
+    </div>
+</div>
+<div class="section">
+    <h2>📈 Performance Results</h2>
+    <div class="chart-container" style="position: relative; height: 500px; margin: 20px 0;">
+        <canvas id="performanceChart"></canvas>
+    </div>
+    
+    <!-- Model Execution Times -->
+    <div class="execution-times-section" style="margin-top: 30px;">
+        <h3 style="color: #1f2937; margin-bottom: 15px; font-size: 1.2rem;">Model Execution Times</h3>
+        <div class="execution-times-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+            
+                    <div style="background: #f9fafb; padding: 15px; border-radius: 8px; border-left: 4px solid #6b7280; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="font-weight: 600; color: #1f2937; margin-bottom: 5px; font-size: 1rem;">claude-3-7-sonnet</div>
+                        <div style="color: #6b7280; font-weight: 700; font-size: 1.25rem; font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;">9m 7s</div>
+                        <div style="color: #6b7280; font-size: 0.85rem; margin-top: 2px;">Total execution time</div>
+                    </div>
+                
+                    <div style="background: #f9fafb; padding: 15px; border-radius: 8px; border-left: 4px solid #6b7280; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="font-weight: 600; color: #1f2937; margin-bottom: 5px; font-size: 1rem;">gemini-2.5-flash</div>
+                        <div style="color: #6b7280; font-weight: 700; font-size: 1.25rem; font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;">2m 16s</div>
+                        <div style="color: #6b7280; font-size: 0.85rem; margin-top: 2px;">Total execution time</div>
+                    </div>
+                
+        </div>
+    </div>
+    
+</div>
+
+<!-- Chart.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Chart Data and Configuration -->
+<script>
+// Chart data from backend
+const CATEGORIES_DATA = ["Agent Delegation", "Artifacts", "Basic Functionality"];
+const CHART_DATASETS_DATA = [{"label": "claude-3-7-sonnet", "data": [0.9, 0.667, 0.7], "backgroundColor": "#2e552f", "borderColor": "#2e552f", "borderWidth": 1, "borderRadius": 4, "borderSkipped": false}, {"label": "gemini-2.5-flash", "data": [0.75, 0.667, 1.0], "backgroundColor": "#a855f7", "borderColor": "#a855f7", "borderWidth": 1, "borderRadius": 4, "borderSkipped": false}];
+
+// Chart.js configuration for benchmark report - Grouped Bar Chart
+const ctx = document.getElementById('performanceChart').getContext('2d');
+const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: CATEGORIES_DATA,
+        datasets: CHART_DATASETS_DATA
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+            mode: 'index',
+            intersect: false,
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'LLM Evaluation Scores by Category',
+                font: {
+                    size: 20,
+                    weight: 'bold'
+                },
+                color: '#000000',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            },
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    color: '#000000',
+                    padding: 20,
+                    usePointStyle: true,
+                    font: {
+                        size: 12
+                    }
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                titleColor: '#ffffff',
+                bodyColor: '#ffffff',
+                borderColor: '#ffffff',
+                borderWidth: 1,
+                callbacks: {
+                    label: function(context) {
+                        const score = context.parsed.y;
+                        const percentage = (score * 100).toFixed(1);
+                        return `${context.dataset.label}: ${score.toFixed(3)} (${percentage}%)`;
+                    }
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 1.0,
+                title: {
+                    display: true,
+                    text: 'Average LLM Evaluation Score',
+                    color: '#000000',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    stepSize: 0.1,
+                    color: '#000000',
+                    font: {
+                        size: 12
+                    },
+                    callback: function(value) {
+                        return value.toFixed(1);
+                    }
+                },
+                grid: {
+                    color: 'rgba(0, 0, 0, 0.1)',
+                    lineWidth: 1
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Task Categories',
+                    color: '#000000',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    }
+                },
+                ticks: {
+                    color: '#000000',
+                    font: {
+                        size: 12,
+                        weight: 'bold'
+                    }
+                },
+                grid: {
+                    display: false
+                }
+            }
+        },
+        elements: {
+            bar: {
+                borderWidth: 1,
+                borderRadius: 4,
+                borderSkipped: false
+            }
+        }
+    }
+});
+</script>
+<div class="section">
+    <h2>📋 Detailed Test Breakdown</h2>
+    <div class="breakdown-container">
+        
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h3 class="category-title">Agent Delegation (2 test cases)</h3>
+                            <span class="category-toggle">▶</span>
+                        </div>
+                        <div class="category-content">
+                            
+                        <div class="test-item" 
+                             data-test-name="generate_mermaid_diagram"
+                             data-test-description="A test case to evaluate the agent's Mermaid diagram generation capabilities."
+                             data-test-data="{&quot;model_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.07394214056478064, &quot;gemini-2.5-flash&quot;: 0.15753622975615628}, &quot;tool_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.0, &quot;gemini-2.5-flash&quot;: 0.0}, &quot;individual_runs&quot;: {&quot;claude-3-7-sonnet&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.07394214056478064, &quot;tool_score&quot;: 0.0, &quot;llm_eval&quot;: 0.8, &quot;llm_reasoning&quot;: &quot;The agent correctly understood the request and generated the requested Mermaid flowchart diagram for a user login. This is evidenced by the created artifact `user_login_flowchart.mmd`. The detailed description in the response body also indicates that the generated diagram is comprehensive and well-structured, covering all the key aspects of a login flow.\n\nHowever, the agent did not include the Mermaid code block directly in the response itself. Instead, it provided a lengthy description of the diagram's features and pointed to the generated file. While the core task was completed, this is not the ideal user experience. A user would typically expect to see the code directly in the chat interface for easy copying and pasting. The response fulfills the prompt by creating the correct artifact, but the presentation is suboptimal, hence the score is slightly reduced from a perfect 1.0.&quot;, &quot;execution_time&quot;: 52.432301, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}], &quot;gemini-2.5-flash&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.15753622975615628, &quot;tool_score&quot;: 0.0, &quot;llm_eval&quot;: 0.6, &quot;llm_reasoning&quot;: &quot;The agent correctly interpreted the request to generate a flowchart for a user login process and successfully created a relevant visual diagram as a PNG artifact. However, the original query specifically asked for a \&quot;Mermaid flowchart diagram\&quot;. A key expectation for such a request is the delivery of the Mermaid source code, which allows the user to edit, version control, and embed the diagram in documentation systems that render Mermaid syntax (e.g., GitHub, GitLab, Confluence). The agent failed to provide this source code, instead only providing the rendered, static PNG image. While the image is a correct diagram of the requested process, omitting the source code is a notable gap that fails to fully meet the user's likely intent.&quot;, &quot;execution_time&quot;: 21.953801, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}]}}">
+                            <div class="test-header">
+                                <span class="test-name">generate_mermaid_diagram</span>
+                                <span class="test-description">A test case to evaluate the agent's Mermaid diagram generation capabilities.</span>
+                            </div>
+                            <div class="model-results">
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">claude-3-7-sonnet</span>
+                                        <span class="score-value">LLM Eval: 0.800</span>
+                                        <span class="avg-duration">Avg time: 52.4s</span>
+                                    </div>
+                                
+                                    <div class="model-result score-medium">
+                                        <span class="model-score">gemini-2.5-flash</span>
+                                        <span class="score-value">LLM Eval: 0.600</span>
+                                        <span class="avg-duration">Avg time: 22.0s</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="test-item" 
+                             data-test-name="web_search_summary"
+                             data-test-description="A test case to evaluate the agent's web search capabilities."
+                             data-test-data="{&quot;model_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.18052420129003804, &quot;gemini-2.5-flash&quot;: 0.07804877708982763}, &quot;tool_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 1.0, &quot;gemini-2.5-flash&quot;: 1.0}, &quot;individual_runs&quot;: {&quot;claude-3-7-sonnet&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.18052420129003804, &quot;tool_score&quot;: 1.0, &quot;llm_eval&quot;: 1.0, &quot;llm_reasoning&quot;: &quot;The agent provided an excellent and comprehensive summary of the web page. The summary is factually correct, well-structured, and covers all the key aspects of the product described on the page, including its core functionality, components, business benefits, and technical details. This can be verified by cross-referencing the response with the provided `solace_agent_mesh_page.md` artifact.\n\nWhile the \&quot;Expected Response\&quot; was a single sentence, the agent's more detailed, sectioned response is arguably more useful and informative for a user trying to understand a complex technical product. The first paragraph of the actual response serves as a concise summary that is very similar in content to the expected response, and the subsequent sections provide valuable elaboration. The response fully meets the criterion of providing a correct summary.&quot;, &quot;execution_time&quot;: 81.17284, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}], &quot;gemini-2.5-flash&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.07804877708982763, &quot;tool_score&quot;: 1.0, &quot;llm_eval&quot;: 0.9, &quot;llm_reasoning&quot;: &quot;The agent correctly accessed the webpage and generated a high-quality, accurate, and comprehensive summary of its content. The summary, located in the `solace_agent_mesh_summary.md` artifact, correctly identifies that \&quot;Solace Agent Mesh is an event-driven agentic AI framework designed to orchestrate autonomous AI agents\&quot; and details its key features and benefits, which aligns perfectly with the information on the source page and the core concepts of the Expected Response.\n\nThe only reason for not giving a perfect score is the delivery method. Instead of providing a concise summary directly in the response, it placed a much longer, more detailed summary into an artifact. While the generated summary is excellent, the user had to take the extra step of opening the artifact to get the answer. The ideal response would have been to provide a concise summary (similar to the expected response) directly in the chat and perhaps offer the more detailed artifact as an optional supplement. However, the core task of creating a correct summary was executed perfectly.&quot;, &quot;execution_time&quot;: 28.02438, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}]}}">
+                            <div class="test-header">
+                                <span class="test-name">web_search_summary</span>
+                                <span class="test-description">A test case to evaluate the agent's web search capabilities.</span>
+                            </div>
+                            <div class="model-results">
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">claude-3-7-sonnet</span>
+                                        <span class="score-value">LLM Eval: 1.000</span>
+                                        <span class="avg-duration">Avg time: 81.2s</span>
+                                    </div>
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">gemini-2.5-flash</span>
+                                        <span class="score-value">LLM Eval: 0.900</span>
+                                        <span class="avg-duration">Avg time: 28.0s</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        </div>
+                    </div>
+                
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h3 class="category-title">Artifacts (3 test cases)</h3>
+                            <span class="category-toggle">▶</span>
+                        </div>
+                        <div class="category-content">
+                            
+                        <div class="test-item" 
+                             data-test-name="generate_image"
+                             data-test-description="A test case to evaluate the agent's image generation capabilities."
+                             data-test-data="{&quot;model_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.19896526014487806, &quot;gemini-2.5-flash&quot;: 0.79999999505}, &quot;tool_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.0, &quot;gemini-2.5-flash&quot;: 1.0}, &quot;individual_runs&quot;: {&quot;claude-3-7-sonnet&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.19896526014487806, &quot;tool_score&quot;: 0.0, &quot;llm_eval&quot;: 1.0, &quot;llm_reasoning&quot;: &quot;The user requested an image of a sunset over the mountains. The agent generated an image and provided it as an output artifact (`sunset_over_mountains.png`). The textual response and the metadata of the artifact both confirm that the generated image is indeed of a sunset over mountains, fulfilling the user's request completely. Therefore, the agent has provided the correct image as per the criterion.&quot;, &quot;execution_time&quot;: 17.725152, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}], &quot;gemini-2.5-flash&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.79999999505, &quot;tool_score&quot;: 1.0, &quot;llm_eval&quot;: 1.0, &quot;llm_reasoning&quot;: &quot;The user requested an image of a sunset over the mountains. The agent generated an image, and the metadata for the output artifact confirms that it was created using the prompt \&quot;a sunset over the mountains\&quot;. This directly and accurately fulfills the user's request. Therefore, the agent provided the correct image.&quot;, &quot;execution_time&quot;: 10.548156, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}]}}">
+                            <div class="test-header">
+                                <span class="test-name">generate_image</span>
+                                <span class="test-description">A test case to evaluate the agent's image generation capabilities.</span>
+                            </div>
+                            <div class="model-results">
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">claude-3-7-sonnet</span>
+                                        <span class="score-value">LLM Eval: 1.000</span>
+                                        <span class="avg-duration">Avg time: 17.7s</span>
+                                    </div>
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">gemini-2.5-flash</span>
+                                        <span class="score-value">LLM Eval: 1.000</span>
+                                        <span class="avg-duration">Avg time: 10.5s</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="test-item" 
+                             data-test-name="generate_complex_report"
+                             data-test-description="A test case to evaluate the agent's complex report generation and agent delegation capabilities."
+                             data-test-data="{&quot;model_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.0, &quot;gemini-2.5-flash&quot;: 0.0}, &quot;tool_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 1.0, &quot;gemini-2.5-flash&quot;: 1.0}, &quot;individual_runs&quot;: {&quot;claude-3-7-sonnet&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.0, &quot;tool_score&quot;: 1.0, &quot;llm_eval&quot;: 1.0, &quot;llm_reasoning&quot;: &quot;The agent successfully completed all parts of the user's request. It performed extensive research on NVIDIA by accessing multiple relevant websites (NVIDIA's own site, Wikipedia). It then correctly processed the provided `financial_data.csv` file, generated four distinct and relevant graphs from the data (Market Cap, Enterprise Value, P/E Ratios, and Market vs Enterprise Value), and compiled all the research and graphs into a single, well-structured HTML report (`nvidia_financial_report.html`). The final response correctly points to this comprehensive report, fully satisfying the prompt's requirements.&quot;, &quot;execution_time&quot;: null, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}], &quot;gemini-2.5-flash&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.0, &quot;tool_score&quot;: 1.0, &quot;llm_eval&quot;: 0.0, &quot;llm_reasoning&quot;: &quot;The agent completely failed to fulfill the user's request. The user asked for an HTML report about NVIDIA, including financial graphs generated from a provided CSV file. The agent did not produce an HTML report, nor did it create any graphs. Instead, it returned a system-level message, \&quot;Initializing A2A context for task run,\&quot; which is not a valid or helpful response. While the output artifacts show that the agent performed some initial research by browsing NVIDIA's website, it did not complete the core tasks of data analysis, graph generation, and report creation. Therefore, it did not provide the correct report as required by the criterion.&quot;, &quot;execution_time&quot;: 38.651592, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}]}}">
+                            <div class="test-header">
+                                <span class="test-name">generate_complex_report</span>
+                                <span class="test-description">A test case to evaluate the agent's complex report generation and agent delegation capabilities.</span>
+                            </div>
+                            <div class="model-results">
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">claude-3-7-sonnet</span>
+                                        <span class="score-value">LLM Eval: 1.000</span>
+                                        <span class="avg-duration">Avg time: 0.0s</span>
+                                    </div>
+                                
+                                    <div class="model-result score-low">
+                                        <span class="model-score">gemini-2.5-flash</span>
+                                        <span class="score-value">LLM Eval: 0.000</span>
+                                        <span class="avg-duration">Avg time: 38.7s</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="test-item" 
+                             data-test-name="convert_pdf_to_markdown"
+                             data-test-description="A test case to convert a PDF file to markdown."
+                             data-test-data="{&quot;model_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.07945122303011307, &quot;gemini-2.5-flash&quot;: 0.3230440926401098}, &quot;tool_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.0, &quot;gemini-2.5-flash&quot;: 0.0}, &quot;individual_runs&quot;: {&quot;claude-3-7-sonnet&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.07945122303011307, &quot;tool_score&quot;: 0.0, &quot;llm_eval&quot;: 0.0, &quot;llm_reasoning&quot;: &quot;The agent failed to meet the core requirement of the criterion, which was to successfully convert the PDF file into a Markdown file. The output artifacts show that the attempted conversion resulted in an empty file (`sample_converted.md` has a size of 0 bytes). The agent's response correctly identifies and reports this failure. Therefore, it did not \&quot;successfully use the MarkitdownAgent to convert the PDF\&quot; and it did not \&quot;confirm task completion.\&quot; Instead, it confirmed task failure. While the agent's handling of the error is commendable\u2014it provides a clear explanation, plausible reasons for the failure, and suggests helpful next steps\u2014it ultimately did not accomplish the requested task.&quot;, &quot;execution_time&quot;: 116.007685, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}], &quot;gemini-2.5-flash&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.3230440926401098, &quot;tool_score&quot;: 0.0, &quot;llm_eval&quot;: 1.0, &quot;llm_reasoning&quot;: &quot;The agent correctly identified the user's intent to convert a PDF to Markdown. It successfully used the appropriate tool, as evidenced by the output artifact `sample_converted.md` which has the metadata `'conversion_tool': 'MarkItDown'`. The agent's response clearly confirms that the task was completed successfully and informs the user about the generated artifact, fulfilling all aspects of the criterion.&quot;, &quot;execution_time&quot;: 9.650392, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}]}}">
+                            <div class="test-header">
+                                <span class="test-name">convert_pdf_to_markdown</span>
+                                <span class="test-description">A test case to convert a PDF file to markdown.</span>
+                            </div>
+                            <div class="model-results">
+                                
+                                    <div class="model-result score-low">
+                                        <span class="model-score">claude-3-7-sonnet</span>
+                                        <span class="score-value">LLM Eval: 0.000</span>
+                                        <span class="avg-duration">Avg time: 116.0s</span>
+                                    </div>
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">gemini-2.5-flash</span>
+                                        <span class="score-value">LLM Eval: 1.000</span>
+                                        <span class="avg-duration">Avg time: 9.7s</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        </div>
+                    </div>
+                
+                    <div class="category-section">
+                        <div class="category-header">
+                            <h3 class="category-title">Basic Functionality (1 test case)</h3>
+                            <span class="category-toggle">▶</span>
+                        </div>
+                        <div class="category-content">
+                            
+                        <div class="test-item" 
+                             data-test-name="simple_hello_world"
+                             data-test-description="A simple test case to check the basic functionality of the system."
+                             data-test-data="{&quot;model_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 0.10418659996424948, &quot;gemini-2.5-flash&quot;: 0.8142857092857143}, &quot;tool_scores&quot;: {&quot;claude-3-7-sonnet&quot;: 1.0, &quot;gemini-2.5-flash&quot;: 1.0}, &quot;individual_runs&quot;: {&quot;claude-3-7-sonnet&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.10418659996424948, &quot;tool_score&quot;: 1.0, &quot;llm_eval&quot;: 0.7, &quot;llm_reasoning&quot;: &quot;The agent does provide a greeting (\&quot;Hello!\&quot;) and introduces itself (\&quot;Welcome to Agent Mesh!\&quot;). It also asks how it can help. However, the response is not a \&quot;standard\&quot; greeting because it is overly verbose. Instead of a concise, conversational opening like the one expected, the agent provides a long, bulleted list of its capabilities. This makes the response feel less like a natural greeting and more like a lengthy onboarding message or a user manual. It meets the basic requirements but deviates significantly in tone and length from a standard greeting.&quot;, &quot;execution_time&quot;: 4.81533, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}], &quot;gemini-2.5-flash&quot;: [{&quot;run_number&quot;: 1, &quot;response_score&quot;: 0.8142857092857143, &quot;tool_score&quot;: 1.0, &quot;llm_eval&quot;: 1.0, &quot;llm_reasoning&quot;: &quot;The actual response fully meets the criterion of providing a standard greeting. It mirrors the structure and intent of the expected response almost perfectly. It greets the user with \&quot;Hello, world!\&quot;, introduces itself as \&quot;Agent Mesh,\&quot; and proactively offers help. The differences between \&quot;AI assistant\&quot; and \&quot;AI Chatbot,\&quot; and \&quot;help\&quot; and \&quot;assist,\&quot; are minor, synonymous wording changes that do not alter the meaning or quality of the greeting.&quot;, &quot;execution_time&quot;: 1.579559, &quot;query&quot;: &quot;&quot;, &quot;actual_response&quot;: &quot;&quot;, &quot;expected_response&quot;: &quot;&quot;}]}}">
+                            <div class="test-header">
+                                <span class="test-name">simple_hello_world</span>
+                                <span class="test-description">A simple test case to check the basic functionality of the system.</span>
+                            </div>
+                            <div class="model-results">
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">claude-3-7-sonnet</span>
+                                        <span class="score-value">LLM Eval: 0.700</span>
+                                        <span class="avg-duration">Avg time: 4.8s</span>
+                                    </div>
+                                
+                                    <div class="model-result score-high">
+                                        <span class="model-score">gemini-2.5-flash</span>
+                                        <span class="score-value">LLM Eval: 1.000</span>
+                                        <span class="avg-duration">Avg time: 1.6s</span>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    
+                        </div>
+                    </div>
+                
+    </div>
+</div>
+
+<script>
+// JavaScript for category dropdown functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryHeaders = document.querySelectorAll('.category-header');
+    
+    categoryHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const toggle = this.querySelector('.category-toggle');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                toggle.textContent = '▶';
+            } else {
+                content.classList.add('active');
+                toggle.textContent = '▼';
+            }
+        });
+    });
+});
+</script>
+
+<!-- Modal for test details -->
+<div id="testModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle">Test Details</h2>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-description" id="modalDescription"></div>
+        <div class="modal-charts">
+            <div class="modal-chart-container">
+                <div class="modal-chart-header">
+                    <div class="modal-chart-title">Response Scores by Model</div>
+                    <button class="chart-toggle-btn" onclick="toggleChart('response')">Show Quartiles</button>
+                </div>
+                <div class="chart-flip-container" id="responseChartContainer">
+                    <div class="chart-face chart-front">
+                        <canvas id="responseChart"></canvas>
+                    </div>
+                    <div class="chart-face chart-back">
+                        <canvas id="responseQuartileChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-chart-container">
+                <div class="modal-chart-header">
+                    <div class="modal-chart-title">Tool Scores by Model</div>
+                    <button class="chart-toggle-btn" onclick="toggleChart('tool')">Show Quartiles</button>
+                </div>
+                <div class="chart-flip-container" id="toolChartContainer">
+                    <div class="chart-face chart-front">
+                        <canvas id="toolChart"></canvas>
+                    </div>
+                    <div class="chart-face chart-back">
+                        <canvas id="toolQuartileChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-runs-section">
+            <div class="runs-section-header">
+                <h3 class="runs-section-title">Individual Run Details</h3>
+                <div class="runs-controls">
+                    <div class="runs-filter">
+                        <label for="modelFilter">Filter by Model:</label>
+                        <select id="modelFilter" onchange="filterRuns()">
+                            <option value="all">All Models</option>
+                        </select>
+                    </div>
+                    <div class="runs-count">
+                        <span id="runsCount">Showing all runs</span>
+                    </div>
+                </div>
+            </div>
+            <div id="runsContainer" class="runs-container">
+                <!-- Individual runs will be populated here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sgratzl/chartjs-chart-boxplot"></script>
+<script>
+// Chart creation functions for modal
+
+function createResponseChart(testData) {
+    const ctx = document.getElementById('responseChart').getContext('2d');
+    
+    const models = Object.keys(testData.model_scores);
+    const responseScores = models.map(model => testData.model_scores[model]);
+    
+    responseChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: models.map(model => model),
+            datasets: [{
+                label: 'Response Score',
+                data: responseScores,
+                backgroundColor: responseScores.map(score => getScoreColor(score)),
+                borderColor: responseScores.map(score => getScoreColor(score)),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 1,
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 10,
+                            weight: 'normal'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+}
+
+function createToolChart(testData) {
+    const ctx = document.getElementById('toolChart').getContext('2d');
+    
+    const models = Object.keys(testData.model_scores);
+    const toolScores = models.map(model => {
+        // Use actual tool scores if available, otherwise generate mock data
+        if (testData.tool_scores && testData.tool_scores[model] !== undefined) {
+            return testData.tool_scores[model];
+        } else {
+            // Generate mock tool scores based on response scores with some variation
+            const responseScore = testData.model_scores[model];
+            return Math.max(0, Math.min(1, responseScore + (Math.random() - 0.5) * 0.3));
+        }
+    });
+    
+    toolChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: models.map(model => model),
+            datasets: [{
+                label: 'Tool Score',
+                data: toolScores,
+                backgroundColor: toolScores.map(score => getScoreColor(score)),
+                borderColor: toolScores.map(score => getScoreColor(score)),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 1,
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 10,
+                            weight: 'normal'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+}
+
+function createResponseQuartileChart(testData) {
+    const ctx = document.getElementById('responseQuartileChart').getContext('2d');
+    
+    const models = Object.keys(testData.model_scores);
+    const responseScores = models.map(model => testData.model_scores[model]);
+    
+    // Create custom boxplot data
+    const boxplotData = models.map((model, index) => {
+        // Check if we have individual run data for this model
+        const individualRuns = testData.individual_runs && testData.individual_runs[model];
+        
+        if (individualRuns && individualRuns.length > 1) {
+            // Use actual individual run data to calculate real quartiles
+            const scores = individualRuns.map(run => run.response_score).sort((a, b) => a - b);
+            const quartileData = calculateActualQuartiles(scores);
+            
+            return {
+                x: index,
+                min: quartileData.min,
+                q1: quartileData.q1,
+                median: quartileData.median,
+                q3: quartileData.q3,
+                max: quartileData.max,
+                outliers: quartileData.outliers
+            };
+        } else {
+            // Single data point - show as a line (all values the same)
+            const score = testData.model_scores[model];
+            return {
+                x: index,
+                min: score,
+                q1: score,
+                median: score,
+                q3: score,
+                max: score,
+                outliers: []
+            };
+        }
+    });
+    
+    responseQuartileChart = new Chart(ctx, {
+        type: 'boxplot',
+        data: {
+            labels: models,
+            datasets: [{
+                label: 'Response Score Distribution',
+                data: boxplotData,
+                backgroundColor: responseScores.map(score => getScoreColor(score) + '80'),
+                borderColor: responseScores.map(score => getScoreColor(score)),
+                borderWidth: 2,
+                outlierColor: '#999999',
+                outlierRadius: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 1,
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 10,
+                            weight: 'normal'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const data = context.parsed;
+                            if (data.min === data.max) {
+                                return `Single value: ${data.min.toFixed(3)}`;
+                            }
+                            return [
+                                `Min: ${data.min.toFixed(3)}`,
+                                `Q1: ${data.q1.toFixed(3)}`,
+                                `Median: ${data.median.toFixed(3)}`,
+                                `Q3: ${data.q3.toFixed(3)}`,
+                                `Max: ${data.max.toFixed(3)}`
+                            ];
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function createToolQuartileChart(testData) {
+    const ctx = document.getElementById('toolQuartileChart').getContext('2d');
+    
+    const models = Object.keys(testData.model_scores);
+    const toolScores = models.map(model => {
+        if (testData.tool_scores && testData.tool_scores[model] !== undefined) {
+            return testData.tool_scores[model];
+        } else {
+            const responseScore = testData.model_scores[model];
+            return Math.max(0, Math.min(1, responseScore + (Math.random() - 0.5) * 0.3));
+        }
+    });
+    
+    // Create custom boxplot data
+    const boxplotData = models.map((model, index) => {
+        // Check if we have individual run data for this model
+        const individualRuns = testData.individual_runs && testData.individual_runs[model];
+        
+        if (individualRuns && individualRuns.length > 1) {
+            // Use actual individual run data to calculate real quartiles
+            const scores = individualRuns.map(run => run.tool_score).sort((a, b) => a - b);
+            const quartileData = calculateActualQuartiles(scores);
+            
+            return {
+                x: index,
+                min: quartileData.min,
+                q1: quartileData.q1,
+                median: quartileData.median,
+                q3: quartileData.q3,
+                max: quartileData.max,
+                outliers: quartileData.outliers
+            };
+        } else {
+            // Single data point - show as a line (all values the same)
+            const score = toolScores[index];
+            return {
+                x: index,
+                min: score,
+                q1: score,
+                median: score,
+                q3: score,
+                max: score,
+                outliers: []
+            };
+        }
+    });
+    
+    toolQuartileChart = new Chart(ctx, {
+        type: 'boxplot',
+        data: {
+            labels: models,
+            datasets: [{
+                label: 'Tool Score Distribution',
+                data: boxplotData,
+                backgroundColor: toolScores.map(score => getScoreColor(score) + '80'),
+                borderColor: toolScores.map(score => getScoreColor(score)),
+                borderWidth: 2,
+                outlierColor: '#999999',
+                outlierRadius: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 1,
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 12,
+                            weight: 'bold'
+                        }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 10,
+                            weight: 'normal'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const data = context.parsed;
+                            if (data.min === data.max) {
+                                return `Single value: ${data.min.toFixed(3)}`;
+                            }
+                            return [
+                                `Min: ${data.min.toFixed(3)}`,
+                                `Q1: ${data.q1.toFixed(3)}`,
+                                `Median: ${data.median.toFixed(3)}`,
+                                `Q3: ${data.q3.toFixed(3)}`,
+                                `Max: ${data.max.toFixed(3)}`
+                            ];
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+function calculateActualQuartiles(sortedScores) {
+    const n = sortedScores.length;
+    
+    if (n === 0) {
+        return { min: 0, q1: 0, median: 0, q3: 0, max: 0, outliers: [] };
+    }
+    
+    if (n === 1) {
+        const value = sortedScores[0];
+        return { min: value, q1: value, median: value, q3: value, max: value, outliers: [] };
+    }
+    
+    // Calculate quartiles using the standard method
+    const min = sortedScores[0];
+    const max = sortedScores[n - 1];
+    
+    // Calculate median (Q2)
+    let median;
+    if (n % 2 === 0) {
+        median = (sortedScores[n / 2 - 1] + sortedScores[n / 2]) / 2;
+    } else {
+        median = sortedScores[Math.floor(n / 2)];
+    }
+    
+    // Calculate Q1 (first quartile)
+    const q1Index = Math.floor(n / 4);
+    let q1;
+    if (n % 4 === 0) {
+        q1 = (sortedScores[q1Index - 1] + sortedScores[q1Index]) / 2;
+    } else {
+        q1 = sortedScores[q1Index];
+    }
+    
+    // Calculate Q3 (third quartile)
+    const q3Index = Math.floor(3 * n / 4);
+    let q3;
+    if (n % 4 === 0) {
+        q3 = (sortedScores[q3Index - 1] + sortedScores[q3Index]) / 2;
+    } else {
+        q3 = sortedScores[q3Index];
+    }
+    
+    // For now, we'll not calculate outliers to keep it simple
+    // In a full implementation, outliers would be values outside 1.5 * IQR from Q1/Q3
+    
+    return {
+        min: min,
+        q1: q1,
+        median: median,
+        q3: q3,
+        max: max,
+        outliers: []
+    };
+}
+
+function getScoreColor(score) {
+    if (score >= 0.7) {
+        return '#27ae60'; // Green
+    } else if (score >= 0.4) {
+        return '#f39c12'; // Orange
+    } else {
+        return '#e74c3c'; // Red
+    }
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('testModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
+</script>
+<script>
+// Modal functionality for test details
+let responseChart = null;
+let toolChart = null;
+let responseQuartileChart = null;
+let toolQuartileChart = null;
+let currentTestData = null;
+let allRuns = [];
+
+// Track chart states
+let chartStates = {
+    response: 'bar', // 'bar' or 'quartile'
+    tool: 'bar'
+};
+
+// Initialize modal event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add click listeners to all test items
+    document.querySelectorAll('.test-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const testName = this.dataset.testName;
+            const testDescription = this.dataset.testDescription;
+            const testData = JSON.parse(this.dataset.testData);
+            openTestModal(testName, testDescription, testData);
+        });
+    });
+});
+
+function openTestModal(testName, testDescription, testData) {
+    const modal = document.getElementById('testModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    
+    modalTitle.textContent = testName;
+    modalDescription.textContent = testDescription;
+    
+    // Store current test data
+    currentTestData = testData;
+    
+    // Reset chart states
+    chartStates.response = 'bar';
+    chartStates.tool = 'bar';
+    
+    // Reset flip containers
+    document.getElementById('responseChartContainer').classList.remove('flipped');
+    document.getElementById('toolChartContainer').classList.remove('flipped');
+    
+    // Reset button texts
+    document.querySelector('[onclick="toggleChart(\'response\')"]').textContent = 'Show Quartiles';
+    document.querySelector('[onclick="toggleChart(\'tool\')"]').textContent = 'Show Quartiles';
+    
+    // Destroy existing charts if they exist
+    destroyAllCharts();
+    
+    // Show modal
+    modal.style.display = 'block';
+    
+    // Create charts after modal is visible
+    setTimeout(() => {
+        createResponseChart(testData);
+        createToolChart(testData);
+        createResponseQuartileChart(testData);
+        createToolQuartileChart(testData);
+        setupModelFilter(testData);
+        populateRunDetails(testData);
+    }, 100);
+}
+
+function closeModal() {
+    const modal = document.getElementById('testModal');
+    modal.style.display = 'none';
+    
+    // Destroy all charts when closing
+    destroyAllCharts();
+    
+    // Reset data
+    currentTestData = null;
+    allRuns = [];
+}
+
+function destroyAllCharts() {
+    if (responseChart) {
+        responseChart.destroy();
+        responseChart = null;
+    }
+    if (toolChart) {
+        toolChart.destroy();
+        toolChart = null;
+    }
+    if (responseQuartileChart) {
+        responseQuartileChart.destroy();
+        responseQuartileChart = null;
+    }
+    if (toolQuartileChart) {
+        toolQuartileChart.destroy();
+        toolQuartileChart = null;
+    }
+}
+
+function toggleChart(chartType) {
+    const container = document.getElementById(chartType + 'ChartContainer');
+    const button = document.querySelector(`[onclick="toggleChart('${chartType}')"]`);
+    
+    container.classList.toggle('flipped');
+    
+    if (chartStates[chartType] === 'bar') {
+        chartStates[chartType] = 'quartile';
+        button.textContent = 'Show Bar Chart';
+    } else {
+        chartStates[chartType] = 'bar';
+        button.textContent = 'Show Quartiles';
+    }
+}
+
+function setupModelFilter(testData) {
+    const modelFilter = document.getElementById('modelFilter');
+    const models = Object.keys(testData.model_scores);
+    
+    // Clear existing options except "All Models"
+    modelFilter.innerHTML = '<option value="all">All Models</option>';
+    
+    // Add model options
+    models.forEach(model => {
+        const option = document.createElement('option');
+        option.value = model;
+        option.textContent = model;
+        modelFilter.appendChild(option);
+    });
+    
+    // Reset to "All Models"
+    modelFilter.value = 'all';
+}
+
+function filterRuns() {
+    if (!currentTestData) return;
+    
+    const selectedModel = document.getElementById('modelFilter').value;
+    populateRunDetails(currentTestData, selectedModel);
+}
+
+function populateRunDetails(testData, filterModel = 'all') {
+    const runsContainer = document.getElementById('runsContainer');
+    const runsCount = document.getElementById('runsCount');
+    runsContainer.innerHTML = '';
+    
+    // Extract individual runs from the actual test data structure
+    allRuns = [];
+    
+    // Check if we have individual_runs data in the testData
+    if (testData.individual_runs) {
+        // Use the actual individual runs data
+        const models = Object.keys(testData.model_scores);
+        
+        models.forEach(model => {
+            if (filterModel !== 'all' && model !== filterModel) {
+                return; // Skip this model if filtering
+            }
+            
+            // Get individual runs for this model from the actual data
+            const modelRuns = testData.individual_runs[model] || [];
+            
+            modelRuns.forEach(run => {
+                allRuns.push({
+                    model: model,
+                    runNumber: run.run_number,
+                    responseScore: run.response_score,
+                    toolScore: run.tool_score,
+                    llmScore: run.llm_eval,
+                    reasoning: run.llm_reasoning || 'No reasoning provided',
+                    query: run.query || '',
+                    actualResponse: run.actual_response || '',
+                    expectedResponse: run.expected_response || '',
+                    executionTime: run.execution_time || 'N/A' // Add execution time with 'N/A' fallback
+                });
+            });
+        });
+    } else {
+        // Fallback: generate mock runs based on average scores (for backward compatibility)
+        const models = Object.keys(testData.model_scores);
+        
+        models.forEach(model => {
+            if (filterModel !== 'all' && model !== filterModel) {
+                return; // Skip this model if filtering
+            }
+            
+            const responseScore = testData.model_scores[model];
+            const toolScore = testData.tool_scores && testData.tool_scores[model] !== undefined 
+                ? testData.tool_scores[model] 
+                : Math.max(0, Math.min(1, responseScore + (Math.random() - 0.5) * 0.3));
+            
+            // Generate 3-5 mock runs for this model
+            const numRuns = Math.floor(Math.random() * 3) + 3; // 3-5 runs
+            
+            for (let i = 0; i < numRuns; i++) {
+                const runResponseScore = Math.max(0, Math.min(1, responseScore + (Math.random() - 0.5) * 0.2));
+                const runToolScore = Math.max(0, Math.min(1, toolScore + (Math.random() - 0.5) * 0.2));
+                
+                allRuns.push({
+                    model: model,
+                    runNumber: i + 1,
+                    responseScore: runResponseScore,
+                    toolScore: runToolScore,
+                    reasoning: generateMockReasoning(runResponseScore, runToolScore, model, i + 1),
+                    query: '',
+                    actualResponse: '',
+                    expectedResponse: ''
+                });
+            }
+        });
+    }
+    
+    // Update runs count
+    const totalRuns = allRuns.length;
+    const modelText = filterModel === 'all' ? 'all models' : filterModel;
+    runsCount.textContent = `Showing ${totalRuns} runs for ${modelText}`;
+    
+    // Sort runs by model and run number
+    allRuns.sort((a, b) => {
+        if (a.model !== b.model) {
+            return a.model.localeCompare(b.model);
+        }
+        return a.runNumber - b.runNumber;
+    });
+    
+    // Create run items
+    allRuns.forEach(run => {
+        const runItem = document.createElement('div');
+        runItem.className = 'run-item';
+        
+        const llmScoreHtml = run.llmScore !== null ? 
+            `<div class="run-score llm">LLM Eval: ${run.llmScore.toFixed(3)}</div>` : '';
+        
+        runItem.innerHTML = `
+            <div class="run-header">
+                <div class="run-model">[Run ${run.runNumber}] ${run.model}</div>
+                <div class="run-scores">
+                    <div class="run-score response">Response: ${run.responseScore.toFixed(3)}</div>
+                    <div class="run-score tool">Tool: ${run.toolScore.toFixed(3)}</div>
+                    ${llmScoreHtml}
+                </div>
+            </div>
+            <div class="run-reasoning">
+                <div class="reasoning-label">Evaluation Reasoning:</div>
+                <div class="reasoning-text">${run.reasoning}</div>
+            </div>
+            <div class="run-performance">
+                <div class="run-execution-time">Execution Time: ${typeof run.executionTime === 'number' ? run.executionTime.toFixed(3) + 's' : run.executionTime}</div>
+            </div>
+        `;
+        
+        runsContainer.appendChild(runItem);
+    });
+}
+
+function generateMockReasoning(responseScore, toolScore, model, runNumber) {
+    let responseQuality = '';
+    let toolUsage = '';
+    
+    if (responseScore >= 0.8) {
+        responseQuality = 'excellent response quality with comprehensive and accurate information';
+    } else if (responseScore >= 0.6) {
+        responseQuality = 'good response quality with mostly accurate information';
+    } else if (responseScore >= 0.4) {
+        responseQuality = 'adequate response quality with some gaps in information';
+    } else {
+        responseQuality = 'poor response quality with significant inaccuracies or missing information';
+    }
+    
+    if (toolScore >= 0.8) {
+        toolUsage = 'demonstrated excellent tool usage with proper parameter selection and effective integration';
+    } else if (toolScore >= 0.6) {
+        toolUsage = 'showed good tool usage with appropriate selections and mostly effective integration';
+    } else if (toolScore >= 0.4) {
+        toolUsage = 'exhibited adequate tool usage with some suboptimal choices or integration issues';
+    } else {
+        toolUsage = 'displayed poor tool usage with incorrect selections or failed integrations';
+    }
+    
+    const additionalComments = [
+        'The model followed instructions well and maintained context throughout the interaction.',
+        'Response formatting was clear and well-structured.',
+        'The model demonstrated good understanding of the task requirements.',
+        'Some minor issues with response coherence were observed.',
+        'The model showed creativity in problem-solving approaches.',
+        'Response time was within acceptable parameters.',
+        'The model handled edge cases appropriately.',
+        'The model provided detailed explanations for its reasoning.',
+        'Some inconsistencies in tool parameter selection were noted.',
+        'The model effectively utilized available context information.',
+        'Response quality varied slightly across different prompt variations.',
+        'The model demonstrated good error handling capabilities.'
+    ];
+    
+    const randomComment = additionalComments[Math.floor(Math.random() * additionalComments.length)];
+    
+    return `Run ${runNumber}: ${model} ${responseQuality} and ${toolUsage}. ${randomComment}`;
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+    "test_case_id": "generate_mermaid_diagram",
+    "run_id": "run_1",
+    "query": "Generate a Mermaid flowchart diagram for a user login.",
+    "target_agent": "OrchestratorAgent",
+    "namespace": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7",
+    "session_id": "rest-session-06b064cf5efd4f36978ebc3054fd4cd0",
+    "final_status": "completed",
+    "final_message": "# User Login Flowchart Diagram\n\nI've created a comprehensive Mermaid flowchart diagram that illustrates the complete user login system process. The flowchart includes all the key components of a typical user login flow:\n\n## Key Features of the Login Flow:\n\n**1. Input Validation Phase:**\n- User accesses login page and enters credentials\n- Client-side validation for complete input fields\n- Server-side format validation\n\n**2. User Authentication Phase:**\n- User existence verification\n- Password hash verification\n- Account status checking\n\n**3. Security Measures:**\n- Failed attempt tracking and limiting\n- Account/IP locking after maximum attempts\n- Generic error messages to prevent user enumeration\n\n**4. Success Path:**\n- Session token generation\n- Authentication cookie setting\n- Failed attempt counter reset\n- Successful login logging\n- Redirect to dashboard/home page\n\n**5. Error Handling:**\n- Multiple exit points for different failure scenarios\n- Clear error messaging\n- Account lockout protection\n\n## Visual Design:\n- **Blue**: Entry point (login page access)\n- **Green**: Successful completion\n- **Red**: Terminal failure states (locked/disabled accounts)\n- **Orange**: Recoverable errors (invalid credentials, format errors)\n\nThe Mermaid flowchart has been created and is available for you to view, download, or integrate into your documentation.",
+    "start_time": "2025-07-31T22:32:22.241020",
+    "end_time": "2025-08-01T02:33:14.673321+00:00",
+    "duration_seconds": 52.432301,
+    "tool_calls": [],
+    "input_artifacts": [],
+    "output_artifacts": [
+        {
+            "artifact_name": "user_login_flowchart.mmd",
+            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-06b064cf5efd4f36978ebc3054fd4cd0/user_login_flowchart.mmd",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "user_login_flowchart.mmd",
+                        "mime_type": "text/plain",
+                        "size_bytes": 1404,
+                        "timestamp_utc": 1754015549.456258,
+                        "description": "Mermaid flowchart diagram showing the complete user login system process flow",
+                        "schema": {
+                            "type": "text/plain",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        }
+    ],
+    "errors": []
+}

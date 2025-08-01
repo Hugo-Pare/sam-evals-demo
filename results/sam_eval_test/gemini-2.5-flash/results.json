@@ -1,0 +1,300 @@
+{
+    "model_name": "gemini-2.5-flash",
+    "total_execution_time": 136.6189272403717,
+    "test_cases": [
+        {
+            "test_case_id": "generate_image",
+            "category": "Artifacts",
+            "runs": [
+                {
+                    "run": 1,
+                    "test_case_id": "generate_image",
+                    "test_case_path": "/home/hugopare/sam-evals-demo/demo/test_cases/generate_image.test.json",
+                    "duration_seconds": 10.548156,
+                    "tool_match": 1.0,
+                    "response_match": 0.79999999505,
+                    "llm_eval": {
+                        "score": 1.0,
+                        "reasoning": "The user requested an image of a sunset over the mountains. The agent generated an image, and the metadata for the output artifact confirms that it was created using the prompt \"a sunset over the mountains\". This directly and accurately fulfills the user's request. Therefore, the agent provided the correct image."
+                    }
+                }
+            ],
+            "average_duration": 10.548156,
+            "tool_match_scores": {
+                "average": 1.0,
+                "distribution": {
+                    "min": 1.0,
+                    "q1": 1.0,
+                    "q2": 1.0,
+                    "q3": 1.0,
+                    "max": 1.0
+                }
+            },
+            "response_match_scores": {
+                "average": 0.79999999505,
+                "distribution": {
+                    "min": 0.79999999505,
+                    "q1": 0.79999999505,
+                    "q2": 0.79999999505,
+                    "q3": 0.79999999505,
+                    "max": 0.79999999505
+                }
+            },
+            "llm_eval_scores": {
+                "average": 1.0,
+                "distribution": {
+                    "min": 1.0,
+                    "q1": 1.0,
+                    "q2": 1.0,
+                    "q3": 1.0,
+                    "max": 1.0
+                }
+            }
+        },
+        {
+            "test_case_id": "convert_pdf_to_markdown",
+            "category": "Artifacts",
+            "runs": [
+                {
+                    "run": 1,
+                    "test_case_id": "convert_pdf_to_markdown",
+                    "test_case_path": "/home/hugopare/sam-evals-demo/demo/test_cases/convert_pdf_to_markdown.test.json",
+                    "duration_seconds": 9.650392,
+                    "tool_match": 0.0,
+                    "response_match": 0.3230440926401098,
+                    "llm_eval": {
+                        "score": 1.0,
+                        "reasoning": "The agent correctly identified the user's intent to convert a PDF to Markdown. It successfully used the appropriate tool, as evidenced by the output artifact `sample_converted.md` which has the metadata `'conversion_tool': 'MarkItDown'`. The agent's response clearly confirms that the task was completed successfully and informs the user about the generated artifact, fulfilling all aspects of the criterion."
+                    }
+                }
+            ],
+            "average_duration": 9.650392,
+            "tool_match_scores": {
+                "average": 0.0,
+                "distribution": {
+                    "min": 0.0,
+                    "q1": 0.0,
+                    "q2": 0.0,
+                    "q3": 0.0,
+                    "max": 0.0
+                }
+            },
+            "response_match_scores": {
+                "average": 0.3230440926401098,
+                "distribution": {
+                    "min": 0.3230440926401098,
+                    "q1": 0.3230440926401098,
+                    "q2": 0.3230440926401098,
+                    "q3": 0.3230440926401098,
+                    "max": 0.3230440926401098
+                }
+            },
+            "llm_eval_scores": {
+                "average": 1.0,
+                "distribution": {
+                    "min": 1.0,
+                    "q1": 1.0,
+                    "q2": 1.0,
+                    "q3": 1.0,
+                    "max": 1.0
+                }
+            }
+        },
+        {
+            "test_case_id": "generate_complex_report",
+            "category": "Artifacts",
+            "runs": [
+                {
+                    "run": 1,
+                    "test_case_id": "generate_complex_report",
+                    "test_case_path": "/home/hugopare/sam-evals-demo/demo/test_cases/generate_complex_report.test.json",
+                    "duration_seconds": 38.651592,
+                    "tool_match": 1.0,
+                    "response_match": 0.0,
+                    "llm_eval": {
+                        "score": 0.0,
+                        "reasoning": "The agent completely failed to fulfill the user's request. The user asked for an HTML report about NVIDIA, including financial graphs generated from a provided CSV file. The agent did not produce an HTML report, nor did it create any graphs. Instead, it returned a system-level message, \"Initializing A2A context for task run,\" which is not a valid or helpful response. While the output artifacts show that the agent performed some initial research by browsing NVIDIA's website, it did not complete the core tasks of data analysis, graph generation, and report creation. Therefore, it did not provide the correct report as required by the criterion."
+                    }
+                }
+            ],
+            "average_duration": 38.651592,
+            "tool_match_scores": {
+                "average": 1.0,
+                "distribution": {
+                    "min": 1.0,
+                    "q1": 1.0,
+                    "q2": 1.0,
+                    "q3": 1.0,
+                    "max": 1.0
+                }
+            },
+            "response_match_scores": {
+                "average": 0.0,
+                "distribution": {
+                    "min": 0.0,
+                    "q1": 0.0,
+                    "q2": 0.0,
+                    "q3": 0.0,
+                    "max": 0.0
+                }
+            },
+            "llm_eval_scores": {
+                "average": 0.0,
+                "distribution": {
+                    "min": 0.0,
+                    "q1": 0.0,
+                    "q2": 0.0,
+                    "q3": 0.0,
+                    "max": 0.0
+                }
+            }
+        },
+        {
+            "test_case_id": "web_search_summary",
+            "category": "Agent Delegation",
+            "runs": [
+                {
+                    "run": 1,
+                    "test_case_id": "web_search_summary",
+                    "test_case_path": "/home/hugopare/sam-evals-demo/demo/test_cases/web_search_summary.test.json",
+                    "duration_seconds": 28.02438,
+                    "tool_match": 1.0,
+                    "response_match": 0.07804877708982763,
+                    "llm_eval": {
+                        "score": 0.9,
+                        "reasoning": "The agent correctly accessed the webpage and generated a high-quality, accurate, and comprehensive summary of its content. The summary, located in the `solace_agent_mesh_summary.md` artifact, correctly identifies that \"Solace Agent Mesh is an event-driven agentic AI framework designed to orchestrate autonomous AI agents\" and details its key features and benefits, which aligns perfectly with the information on the source page and the core concepts of the Expected Response.\n\nThe only reason for not giving a perfect score is the delivery method. Instead of providing a concise summary directly in the response, it placed a much longer, more detailed summary into an artifact. While the generated summary is excellent, the user had to take the extra step of opening the artifact to get the answer. The ideal response would have been to provide a concise summary (similar to the expected response) directly in the chat and perhaps offer the more detailed artifact as an optional supplement. However, the core task of creating a correct summary was executed perfectly."
+                    }
+                }
+            ],
+            "average_duration": 28.02438,
+            "tool_match_scores": {
+                "average": 1.0,
+                "distribution": {
+                    "min": 1.0,
+                    "q1": 1.0,
+                    "q2": 1.0,
+                    "q3": 1.0,
+                    "max": 1.0
+                }
+            },
+            "response_match_scores": {
+                "average": 0.07804877708982763,
+                "distribution": {
+                    "min": 0.07804877708982763,
+                    "q1": 0.07804877708982763,
+                    "q2": 0.07804877708982763,
+                    "q3": 0.07804877708982763,
+                    "max": 0.07804877708982763
+                }
+            },
+            "llm_eval_scores": {
+                "average": 0.9,
+                "distribution": {
+                    "min": 0.9,
+                    "q1": 0.9,
+                    "q2": 0.9,
+                    "q3": 0.9,
+                    "max": 0.9
+                }
+            }
+        },
+        {
+            "test_case_id": "simple_hello_world",
+            "category": "Basic Functionality",
+            "runs": [
+                {
+                    "run": 1,
+                    "test_case_id": "simple_hello_world",
+                    "test_case_path": "/home/hugopare/sam-evals-demo/demo/test_cases/simple_hello_world.test.json",
+                    "duration_seconds": 1.579559,
+                    "tool_match": 1.0,
+                    "response_match": 0.8142857092857143,
+                    "llm_eval": {
+                        "score": 1.0,
+                        "reasoning": "The actual response fully meets the criterion of providing a standard greeting. It mirrors the structure and intent of the expected response almost perfectly. It greets the user with \"Hello, world!\", introduces itself as \"Agent Mesh,\" and proactively offers help. The differences between \"AI assistant\" and \"AI Chatbot,\" and \"help\" and \"assist,\" are minor, synonymous wording changes that do not alter the meaning or quality of the greeting."
+                    }
+                }
+            ],
+            "average_duration": 1.579559,
+            "tool_match_scores": {
+                "average": 1.0,
+                "distribution": {
+                    "min": 1.0,
+                    "q1": 1.0,
+                    "q2": 1.0,
+                    "q3": 1.0,
+                    "max": 1.0
+                }
+            },
+            "response_match_scores": {
+                "average": 0.8142857092857143,
+                "distribution": {
+                    "min": 0.8142857092857143,
+                    "q1": 0.8142857092857143,
+                    "q2": 0.8142857092857143,
+                    "q3": 0.8142857092857143,
+                    "max": 0.8142857092857143
+                }
+            },
+            "llm_eval_scores": {
+                "average": 1.0,
+                "distribution": {
+                    "min": 1.0,
+                    "q1": 1.0,
+                    "q2": 1.0,
+                    "q3": 1.0,
+                    "max": 1.0
+                }
+            }
+        },
+        {
+            "test_case_id": "generate_mermaid_diagram",
+            "category": "Agent Delegation",
+            "runs": [
+                {
+                    "run": 1,
+                    "test_case_id": "generate_mermaid_diagram",
+                    "test_case_path": "/home/hugopare/sam-evals-demo/demo/test_cases/generate_mermaid_diagram.test.json",
+                    "duration_seconds": 21.953801,
+                    "tool_match": 0.0,
+                    "response_match": 0.15753622975615628,
+                    "llm_eval": {
+                        "score": 0.6,
+                        "reasoning": "The agent correctly interpreted the request to generate a flowchart for a user login process and successfully created a relevant visual diagram as a PNG artifact. However, the original query specifically asked for a \"Mermaid flowchart diagram\". A key expectation for such a request is the delivery of the Mermaid source code, which allows the user to edit, version control, and embed the diagram in documentation systems that render Mermaid syntax (e.g., GitHub, GitLab, Confluence). The agent failed to provide this source code, instead only providing the rendered, static PNG image. While the image is a correct diagram of the requested process, omitting the source code is a notable gap that fails to fully meet the user's likely intent."
+                    }
+                }
+            ],
+            "average_duration": 21.953801,
+            "tool_match_scores": {
+                "average": 0.0,
+                "distribution": {
+                    "min": 0.0,
+                    "q1": 0.0,
+                    "q2": 0.0,
+                    "q3": 0.0,
+                    "max": 0.0
+                }
+            },
+            "response_match_scores": {
+                "average": 0.15753622975615628,
+                "distribution": {
+                    "min": 0.15753622975615628,
+                    "q1": 0.15753622975615628,
+                    "q2": 0.15753622975615628,
+                    "q3": 0.15753622975615628,
+                    "max": 0.15753622975615628
+                }
+            },
+            "llm_eval_scores": {
+                "average": 0.6,
+                "distribution": {
+                    "min": 0.6,
+                    "q1": 0.6,
+                    "q2": 0.6,
+                    "q3": 0.6,
+                    "max": 0.6
+                }
+            }
+        }
+    ]
+}

@@ -16,9 +16,9 @@
             }
         },
         {
-            "name": "vertex-claude-4-sonnet",
+            "name": "claude-3-7-sonnet",
             "env": {
-                "LLM_SERVICE_PLANNING_MODEL_NAME": "openai/vertex-claude-4-sonnet",
+                "LLM_SERVICE_PLANNING_MODEL_NAME": "openai/claude-3-7-sonnet",
                 "LLM_SERVICE_ENDPOINT_VAR": "LLM_SERVICE_ENDPOINT",
                 "LLM_SERVICE_API_KEY_VAR": "LLM_SERVICE_API_KEY"
             }

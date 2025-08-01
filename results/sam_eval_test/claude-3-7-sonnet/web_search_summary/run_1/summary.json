@@ -1,0 +1,97 @@
+{
+    "test_case_id": "web_search_summary",
+    "run_id": "run_1",
+    "query": "Summarize this page: https://solace.com/products/agent-mesh/",
+    "target_agent": "OrchestratorAgent",
+    "namespace": "eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7",
+    "session_id": "rest-session-3a0adb8febaf434d874ed2f987488114",
+    "final_status": "completed",
+    "final_message": "# Solace Agent Mesh Summary\n\nSolace Agent Mesh is an innovative **event-driven framework for agentic AI** that orchestrates autonomous AI agents and enables real-time interactions across enterprise systems. Here's what makes it notable:\n\n## Core Functionality\n\n- **Orchestrates AI agents** through intelligent task distribution and workflow management\n- **Facilitates real-time communication** between agents, applications, and data sources\n- **Provides governance and access controls** for secure agent interactions\n- **Built on Solace's established event-driven platform** for enterprise-grade reliability\n\n## Key Components\n\n1. **Gateways** - Control access through different interfaces (REST, MQTT, Slack, Teams)\n2. **Orchestrator** - Intelligently breaks down tasks and assigns them to appropriate agents\n3. **Data Management Layer** - Controls data access and manipulation, reducing costs while improving speed and accuracy\n4. **Event Mesh** - Enables reliable asynchronous communications across systems\n5. **Agents** - Includes built-in agents and easy integration with external agent services\n\n## Business Benefits\n\n- **Accelerates AI innovation** through seamless integration of AI capabilities\n- **Enhances user experience** with real-time data access\n- **Ensures security and compliance** through robust authentication and authorization\n- **Improves operational efficiency** by streamlining complex workflows\n- **Provides enterprise scalability** to handle growing AI workloads\n\n## Technical Implementation\n\n- Available as **open-source on GitHub**\n- Scales from local development to enterprise deployments\n- Built on event-driven architecture principles for optimal performance\n- Supports integration with existing AI assets and enterprise systems\n\nSolace Agent Mesh represents a comprehensive infrastructure solution for organizations looking to implement and orchestrate AI agents across their enterprise while maintaining proper governance, security, and scalability.\n\nI've included the full detailed summary as an attachment for your reference.",
+    "start_time": "2025-07-31T22:29:36.618811",
+    "end_time": "2025-08-01T02:30:57.791651+00:00",
+    "duration_seconds": 81.17284,
+    "tool_calls": [
+        {
+            "call_id": "tooluse_v-kiBiCvQi2zKnU8RKnTuA",
+            "agent": "OrchestratorAgent",
+            "tool_name": "peer_WebAgent",
+            "arguments": {
+                "task_description": "Please fetch the content from the webpage https://solace.com/products/agent-mesh/",
+                "user_query": "Summarize this page: https://solace.com/products/agent-mesh/"
+            },
+            "timestamp": "2025-08-01T02:29:39.502229+00:00"
+        },
+        {
+            "call_id": "tooluse_kZ_OjxjdQEKtPJ_2UOShdQ",
+            "agent": "OrchestratorAgent",
+            "tool_name": "signal_artifact_for_return",
+            "arguments": {
+                "filename": "solace_agent_mesh_summary_f33babe3.txt",
+                "version": 0
+            },
+            "timestamp": "2025-08-01T02:30:49.639391+00:00"
+        }
+    ],
+    "input_artifacts": [],
+    "output_artifacts": [
+        {
+            "artifact_name": "solace_agent_mesh_page.md",
+            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-3a0adb8febaf434d874ed2f987488114/solace_agent_mesh_page.md",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "solace_agent_mesh_page.md",
+                        "mime_type": "text/markdown",
+                        "size_bytes": 15474,
+                        "timestamp_utc": 1754015386.116834,
+                        "url": "https://solace.com/products/agent-mesh/",
+                        "method": "GET",
+                        "request_headers": "{\"User-Agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\"}",
+                        "response_status_code": 200,
+                        "response_headers": "{\"connection\": \"keep-alive\", \"content-length\": \"71422\", \"access-control-allow-headers\": \"Content-Type, Authorization\", \"access-control-allow-methods\": \"GET,POST\", \"cache-control\": \"public, max-age=120\", \"content-encoding\": \"gzip\", \"content-security-policy\": \"upgrade-insecure-requests;\", \"content-type\": \"text/html; charset=UTF-8\", \"cross-origin-embedder-policy\": \"unsafe-none; report-to='default'\", \"cross-origin-embedder-policy-report-only\": \"unsafe-none; report-to='default'\", \"cross-origin-opener-policy\": \"unsafe-none\", \"cross-origin-opener-policy-report-only\": \"unsafe-none; report-to='default'\", \"cross-origin-resource-policy\": \"cross-origin\", \"permissions-policy\": \"accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(self), encrypted-media=(), fullscreen=*, geolocation=(self), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=*, picture-in-picture=*, publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=*, usb=(), xr-spatial-tracking=(), gamepad=(), serial=()\", \"referrer-policy\": \"strict-origin-when-cross-origin\", \"server\": \"nginx\", \"strict-transport-security\": \"max-age=63072000; includeSubDomains; preload\", \"x-content-security-policy\": \"default-src 'self'; img-src *; media-src * data:;\", \"x-content-type-options\": \"nosniff\", \"x-frame-options\": \"DENY\", \"x-pantheon-styx-hostname\": \"styx-fe4-a-8555c9b7f7-77cb9\", \"x-permitted-cross-domain-policies\": \"none\", \"x-styx-req-id\": \"6271c896-6e7f-11f0-89bf-3ebe87713666\", \"x-tec-api-origin\": \"https://solace.com\", \"x-tec-api-root\": \"https://solace.com/wp-json/tribe/events/v1/\", \"x-tec-api-version\": \"v1\", \"age\": \"0\", \"accept-ranges\": \"bytes\", \"via\": \"1.1 varnish, 1.1 varnish, 1.1 varnish, 1.1 varnish\", \"date\": \"Fri, 01 Aug 2025 02:29:46 GMT\", \"x-served-by\": \"cache-chi-klot8100029-CHI, cache-yul1970043-YUL, cache-yul1970059-YUL, cache-yul1970059-YUL\", \"x-cache\": \"MISS, MISS, MISS, MISS\", \"x-cache-hits\": \"0, 0, 0, 0\", \"x-timer\": \"S1754015384.966387,VS0,VE2380\", \"vary\": \"Accept-Encoding, Cookie, Cookie\"}",
+                        "original_content_type": "text/html",
+                        "processed_content_type": "text/markdown",
+                        "timestamp": "2025-08-01T02:29:46.116762+00:00",
+                        "schema": {
+                            "type": "text/markdown",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": null,
+            "created_by_call_id": null,
+            "creation_timestamp": null
+        },
+        {
+            "artifact_name": "solace_agent_mesh_summary_f33babe3.txt",
+            "directory": "/tmp/samv2/eval-bd856920-8894-4b01-a4ea-60ea5cd31ca7/eval-user/rest-session-3a0adb8febaf434d874ed2f987488114/solace_agent_mesh_summary_f33babe3.txt",
+            "versions": [
+                {
+                    "version": "0",
+                    "metadata": {
+                        "filename": "solace_agent_mesh_summary_f33babe3.txt",
+                        "mime_type": "text/plain",
+                        "size_bytes": 3694,
+                        "timestamp_utc": 1754015418.798668,
+                        "description": "Content extracted/transformed from artifact 'solace_agent_mesh_page.md' (version 0) using goal: 'Extract all key information about Solace Agent Mesh including: what it is, its key features, benefits, use cases, how it works, and any technical specifications mentioned on the page. Organize this into a clear, structured format with sections for each major aspect of the product.'.",
+                        "source_artifact_filename": "solace_agent_mesh_page.md",
+                        "source_artifact_version": 0,
+                        "extraction_goal_used": "Extract all key information about Solace Agent Mesh including: what it is, its key features, benefits, use cases, how it works, and any technical specifications mentioned on the page. Organize this into a clear, structured format with sections for each major aspect of the product.",
+                        "schema": {
+                            "type": "text/plain",
+                            "inferred": false,
+                            "error": null
+                        }
+                    }
+                }
+            ],
+            "created_by_tool": "signal_artifact_for_return",
+            "created_by_call_id": "tooluse_kZ_OjxjdQEKtPJ_2UOShdQ",
+            "creation_timestamp": "2025-08-01T02:30:49.639391+00:00"
+        }
+    ],
+    "errors": []
+}

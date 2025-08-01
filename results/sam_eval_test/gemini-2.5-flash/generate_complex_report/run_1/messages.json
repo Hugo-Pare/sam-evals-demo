@@ -1,0 +1,164 @@
+[
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/agent/request/OrchestratorAgent",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "cf5fcf6e31c34d2e85b4e9ef50b28329",
+            "method": "tasks/sendSubscribe",
+            "params": {
+                "id": "task-4ce88dafc54f46ddbe66108a39c4a317",
+                "sessionId": "rest-session-3c2b4f99cccf4f87a7b340f77bedcf0c",
+                "message": {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "type": "text",
+                            "text": "Request received by gateway at: 2025-08-01T02:28:29.470859+00:00"
+                        },
+                        {
+                            "type": "file",
+                            "file": {
+                                "name": "financial_data.csv",
+                                "uri": "artifact://gdk-gateway-1a93ed9a/eval-user/rest-session-3c2b4f99cccf4f87a7b340f77bedcf0c/financial_data.csv?version=0"
+                            }
+                        },
+                        {
+                            "type": "text",
+                            "text": "The user uploaded the following file(s):\n- financial_data.csv (215 bytes)\n\nUser message: Research what the company NVIDIA does and create an HTML report containing their financials over time, using the data from the csv file to generate graphs."
+                        }
+                    ]
+                },
+                "acceptedOutputModes": [
+                    "text",
+                    "data",
+                    "file"
+                ],
+                "metadata": {
+                    "system_purpose": "The system is an AI Chatbot with agentic capabilities. It will use the agents available to provide information, reasoning and general assistance for the users in this system. **Always return useful artifacts and files that you create to the user.** Provide a status update before each tool call. Your external name is Agent Mesh.    \n",
+                    "response_format": "Responses should be clear, concise, and professionally toned.  Format responses to the user in Markdown using appropriate formatting.\n"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-4ce88dafc54f46ddbe66108a39c4a317",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "cf5fcf6e31c34d2e85b4e9ef50b28329",
+            "result": {
+                "id": "task-4ce88dafc54f46ddbe66108a39c4a317",
+                "status": {
+                    "state": "working",
+                    "message": {
+                        "role": "agent",
+                        "parts": [],
+                        "metadata": {
+                            "type": "llm_response",
+                            "data": {
+                                "content": {
+                                    "parts": [
+                                        {
+                                            "text": "I'll start by researching NVIDIA. Then, I'll analyze the financial data in the CSV and create visualizations. Finally, I'll compile all this into an HTML report.\n\n**Plan:**\n*   \u2610 Research NVIDIA's business using WebAgent.\n*   \u2610 Analyze `financial_data.csv` to understand its structure and content.\n*   \u2610 Generate visualizations from the CSV data.\n*   \u2610 Create an HTML report incorporating the research and visualizations.\n\u00abstatus_update:Researching NVIDIA's business...\u00bb"
+                                        },
+                                        {
+                                            "function_call": {
+                                                "id": "7005fd4c-fb04-44ab-916b-2e12542376b1",
+                                                "args": {
+                                                    "task_description": "Research what the company NVIDIA does, focusing on their business, products, and market position.",
+                                                    "user_query": "What does NVIDIA do?"
+                                                },
+                                                "name": "peer_WebAgent"
+                                            }
+                                        }
+                                    ],
+                                    "role": "model"
+                                },
+                                "partial": false
+                            }
+                        }
+                    },
+                    "timestamp": "2025-08-01T02:28:32.615813+00:00"
+                },
+                "final": true,
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/agent/request/WebAgent",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "4031337e7b0a4b2aad9b64ea0313de36",
+            "method": "tasks/send",
+            "params": {
+                "id": "a2a_subtask_ac5f25570533453298bd88dbd118fb9a",
+                "sessionId": "rest-session-3c2b4f99cccf4f87a7b340f77bedcf0c",
+                "message": {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "type": "text",
+                            "text": "You are part of a multi-agent AI platform. The task below is being sent to you by agent 'OrchestratorAgent'. You must perform this task to the best of your abilities. All artifacts that you create will automatically be returned to the calling agent, but you must provide context and description for which artifacts are important and how they should be used. Note that the calling agent will not see any of your history - only the text that you respond with.\n\nNow please execute this task that was given to you:\n\nResearch what the company NVIDIA does, focusing on their business, products, and market position."
+                        }
+                    ]
+                },
+                "metadata": {
+                    "sessionBehavior": "RUN_BASED",
+                    "parentTaskId": "task-4ce88dafc54f46ddbe66108a39c4a317",
+                    "function_call_id": "7005fd4c-fb04-44ab-916b-2e12542376b1"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/response/gdk-gateway-1a93ed9a/task-4ce88dafc54f46ddbe66108a39c4a317",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "cf5fcf6e31c34d2e85b4e9ef50b28329",
+            "result": {
+                "id": "task-4ce88dafc54f46ddbe66108a39c4a317",
+                "sessionId": "rest-session-3c2b4f99cccf4f87a7b340f77bedcf0c",
+                "status": {
+                    "state": "completed",
+                    "message": {
+                        "role": "agent",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "text": "Initializing A2A context for task run."
+                            }
+                        ]
+                    },
+                    "timestamp": "2025-08-01T02:29:08.122451+00:00"
+                },
+                "metadata": {
+                    "agent_name": "OrchestratorAgent",
+                    "produced_artifacts": [
+                        {
+                            "filename": "nvidia_homepage.md",
+                            "version": 0
+                        },
+                        {
+                            "filename": "nvidia_homepage.md",
+                            "version": 1
+                        },
+                        {
+                            "filename": "nvidia_homepage.md",
+                            "version": 2
+                        },
+                        {
+                            "filename": "nvidia_homepage.md",
+                            "version": 3
+                        },
+                        {
+                            "filename": "nvidia_research_summary_ecb435ef.txt",
+                            "version": 0
+                        }
+                    ]
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,8 @@
+{
+    "task-96340c22f212427b9fe02b4bc5c79dfb": "/home/hugopare/sam-evals-demo/results/sam_eval_test/claude-3-7-sonnet/simple_hello_world/run_1",
+    "task-88a042eac18c4e618ecfd5520cfada1b": "/home/hugopare/sam-evals-demo/results/sam_eval_test/claude-3-7-sonnet/web_search_summary/run_1",
+    "task-1a81a9ff8f12440abdabab274a4519dd": "/home/hugopare/sam-evals-demo/results/sam_eval_test/claude-3-7-sonnet/convert_pdf_to_markdown/run_1",
+    "task-7c3e4d313aeb4c86adf7d83b2606423f": "/home/hugopare/sam-evals-demo/results/sam_eval_test/claude-3-7-sonnet/generate_image/run_1",
+    "task-7b2570e59ead4fb7a77073e17d8fb5de": "/home/hugopare/sam-evals-demo/results/sam_eval_test/claude-3-7-sonnet/generate_mermaid_diagram/run_1",
+    "task-7d77785edcd14c3c8975de9d52f9c1cd": "/home/hugopare/sam-evals-demo/results/sam_eval_test/claude-3-7-sonnet/generate_complex_report/run_1"
+}

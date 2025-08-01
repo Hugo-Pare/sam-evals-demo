@@ -1,0 +1,374 @@
+[
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/agent/request/OrchestratorAgent",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "method": "tasks/sendSubscribe",
+            "params": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "sessionId": "rest-session-b2c4b4bd15b94d409c501e3a19cab484",
+                "message": {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "type": "text",
+                            "text": "Request received by gateway at: 2025-08-01T02:27:16.242171+00:00"
+                        },
+                        {
+                            "type": "text",
+                            "text": "Summarize this page: https://solace.com/products/agent-mesh/"
+                        }
+                    ]
+                },
+                "acceptedOutputModes": [
+                    "text",
+                    "data",
+                    "file"
+                ],
+                "metadata": {
+                    "system_purpose": "The system is an AI Chatbot with agentic capabilities. It will use the agents available to provide information, reasoning and general assistance for the users in this system. **Always return useful artifacts and files that you create to the user.** Provide a status update before each tool call. Your external name is Agent Mesh.    \n",
+                    "response_format": "Responses should be clear, concise, and professionally toned.  Format responses to the user in Markdown using appropriate formatting.\n"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-37dc8f0c346740afa7400aae7bd569a6",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "result": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "status": {
+                    "state": "working",
+                    "message": {
+                        "role": "agent",
+                        "parts": [],
+                        "metadata": {
+                            "type": "llm_response",
+                            "data": {
+                                "content": {
+                                    "parts": [
+                                        {
+                                            "text": "\u00abstatus_update:Delegating task to WebAgent to summarize the provided URL.\u00bb"
+                                        },
+                                        {
+                                            "function_call": {
+                                                "id": "f0fc0633-0517-422b-943a-19200b392104",
+                                                "args": {
+                                                    "user_query": "Summarize this page: https://solace.com/products/agent-mesh/",
+                                                    "task_description": "Summarize the content of the provided URL."
+                                                },
+                                                "name": "peer_WebAgent"
+                                            }
+                                        }
+                                    ],
+                                    "role": "model"
+                                },
+                                "partial": false
+                            }
+                        }
+                    },
+                    "timestamp": "2025-08-01T02:27:17.370849+00:00"
+                },
+                "final": true,
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/agent/request/WebAgent",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "ad4b93f305b6465b9a795c5d197ccb61",
+            "method": "tasks/send",
+            "params": {
+                "id": "a2a_subtask_590da5f9fa6942cba414903f0f83622b",
+                "sessionId": "rest-session-b2c4b4bd15b94d409c501e3a19cab484",
+                "message": {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "type": "text",
+                            "text": "You are part of a multi-agent AI platform. The task below is being sent to you by agent 'OrchestratorAgent'. You must perform this task to the best of your abilities. All artifacts that you create will automatically be returned to the calling agent, but you must provide context and description for which artifacts are important and how they should be used. Note that the calling agent will not see any of your history - only the text that you respond with.\n\nNow please execute this task that was given to you:\n\nSummarize the content of the provided URL."
+                        }
+                    ]
+                },
+                "metadata": {
+                    "sessionBehavior": "RUN_BASED",
+                    "parentTaskId": "task-37dc8f0c346740afa7400aae7bd569a6",
+                    "function_call_id": "f0fc0633-0517-422b-943a-19200b392104"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-37dc8f0c346740afa7400aae7bd569a6",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "result": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "status": {
+                    "state": "working",
+                    "message": {
+                        "role": "agent",
+                        "parts": [],
+                        "metadata": {
+                            "type": "llm_response",
+                            "data": {
+                                "content": {
+                                    "parts": [
+                                        {
+                                            "text": "\u00abstatus_update:Retrying delegation to WebAgent with explicit URL in task description.\u00bb"
+                                        },
+                                        {
+                                            "function_call": {
+                                                "id": "0adbba7b-5bc0-480b-a7cd-2db65dfe1483",
+                                                "args": {
+                                                    "user_query": "Summarize this page: https://solace.com/products/agent-mesh/",
+                                                    "task_description": "Summarize the content of the page at https://solace.com/products/agent-mesh/"
+                                                },
+                                                "name": "peer_WebAgent"
+                                            }
+                                        }
+                                    ],
+                                    "role": "model"
+                                },
+                                "partial": false
+                            }
+                        }
+                    },
+                    "timestamp": "2025-08-01T02:27:20.994183+00:00"
+                },
+                "final": true,
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/agent/request/WebAgent",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "83d18d6c227c4f46b526269d1981df24",
+            "method": "tasks/send",
+            "params": {
+                "id": "a2a_subtask_38fea318e8f24dd689a6fa87a863b08c",
+                "sessionId": "rest-session-b2c4b4bd15b94d409c501e3a19cab484",
+                "message": {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "type": "text",
+                            "text": "You are part of a multi-agent AI platform. The task below is being sent to you by agent 'OrchestratorAgent'. You must perform this task to the best of your abilities. All artifacts that you create will automatically be returned to the calling agent, but you must provide context and description for which artifacts are important and how they should be used. Note that the calling agent will not see any of your history - only the text that you respond with.\n\nNow please execute this task that was given to you:\n\nSummarize the content of the page at https://solace.com/products/agent-mesh/"
+                        }
+                    ]
+                },
+                "metadata": {
+                    "sessionBehavior": "RUN_BASED",
+                    "parentTaskId": "task-37dc8f0c346740afa7400aae7bd569a6",
+                    "function_call_id": "0adbba7b-5bc0-480b-a7cd-2db65dfe1483"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-37dc8f0c346740afa7400aae7bd569a6",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "result": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "status": {
+                    "state": "working",
+                    "message": {
+                        "role": "agent",
+                        "parts": [],
+                        "metadata": {
+                            "type": "llm_response",
+                            "data": {
+                                "content": {
+                                    "parts": [
+                                        {
+                                            "text": "\u00abstatus_update:Listing artifacts to identify the summary document.\u00bb"
+                                        },
+                                        {
+                                            "function_call": {
+                                                "id": "9ae92a0f-31cd-4662-8c42-a78f652e5b1f",
+                                                "args": {},
+                                                "name": "list_artifacts"
+                                            }
+                                        }
+                                    ],
+                                    "role": "model"
+                                },
+                                "partial": false
+                            }
+                        }
+                    },
+                    "timestamp": "2025-08-01T02:27:41.909544+00:00"
+                },
+                "final": true,
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-37dc8f0c346740afa7400aae7bd569a6",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "result": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "status": {
+                    "state": "working",
+                    "message": {
+                        "role": "agent",
+                        "parts": [],
+                        "metadata": {
+                            "type": "llm_response",
+                            "data": {
+                                "content": {
+                                    "parts": [
+                                        {
+                                            "text": "\u00abstatus_update:Signaling the summary artifact for return.\u00bb"
+                                        },
+                                        {
+                                            "function_call": {
+                                                "id": "777ed312-937e-4702-9818-b284c0f2ca49",
+                                                "args": {
+                                                    "version": 1,
+                                                    "filename": "solace_agent_mesh_summary.md"
+                                                },
+                                                "name": "signal_artifact_for_return"
+                                            }
+                                        }
+                                    ],
+                                    "role": "model"
+                                },
+                                "partial": false
+                            }
+                        }
+                    },
+                    "timestamp": "2025-08-01T02:27:43.072460+00:00"
+                },
+                "final": true,
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-37dc8f0c346740afa7400aae7bd569a6",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "result": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "artifact": {
+                    "name": "solace_agent_mesh_summary.md",
+                    "parts": [
+                        {
+                            "type": "file",
+                            "file": {
+                                "name": "solace_agent_mesh_summary.md",
+                                "mimeType": "text/markdown",
+                                "bytes": "U29sYWNlIEFnZW50IE1lc2ggaXMgYW4gKipldmVudC1kcml2ZW4gYWdlbnRpYyBBSSBmcmFtZXdvcmsqKiBkZXNpZ25lZCB0byBpbnRlZ3JhdGUgYW5kIG9yY2hlc3RyYXRlIGF1dG9ub21vdXMgQUkgYWdlbnRzIGluIHJlYWwtdGltZS4gSXQgZW5hYmxlcyB0aGVzZSBhZ2VudHMgdG8gaW50ZXJhY3Qgc2VhbWxlc3NseSB3aXRoIGVhY2ggb3RoZXIsIHdpdGggb3RoZXIgQUkgYXNzZXRzLCBhbmQgd2l0aCB2YXJpb3VzIGFwcGxpY2F0aW9ucyBhbmQgZGF0YSBzb3VyY2VzIGFjcm9zcyBhbiBlbnRlcnByaXNlLiBCdWlsdCBvbiBTb2xhY2UncyB0cnVzdGVkIGV2ZW50LWRyaXZlbiBwbGF0Zm9ybSwgaXQgYWltcyB0byBmYWNpbGl0YXRlIHRoZSBidWlsZGluZyBhbmQgZGVwbG95bWVudCBvZiBpbnRlbGxpZ2VudCwgZXh0ZW5zaWJsZSwgYW5kIHdlbGwtZ292ZXJuZWQgQUktcG93ZXJlZCBhcHBsaWNhdGlvbnMuCgoqKktleSBGZWF0dXJlczoqKgoKKiAgICoqRHluYW1pYyBPcmNoZXN0cmF0aW9uIG9mIEFnZW50czoqKiBBbiBpbnRlbGxpZ2VudCBvcmNoZXN0cmF0b3Igcm91dGVzIGlucHV0cyBhbmQgcmVxdWVzdHMsIGJyZWFraW5nIHRoZW0gZG93biBpbnRvIHRhc2tzIGFuZCBkaXNwYXRjaGluZyB0aGVtIHRvIGFwcHJvcHJpYXRlIGFnZW50cyB1c2luZyBkeW5hbWljIG9yIHByZXNjcmlwdGl2ZSB3b3JrZmxvd3MuIEl0IGFzc2lnbnMgdGhlIHJpZ2h0IHRhc2sgdG8gdGhlIHJpZ2h0IGFnZW50IGFuZCBjb250cm9scyBhY2Nlc3MgYmFzZWQgb24gYXV0aG9yaXphdGlvbiBzY29wZXMuCiogICAqKkdvdmVybmFuY2UgYW5kIEFjY2VzcyBDb250cm9sIChHYXRld2F5cyk6KiogR2F0ZXdheXMgc2VydmUgYXMgY29udHJvbGxlZCBlbnRyeSBwb2ludHMgaW50byB0aGUgYWdlbnQgZWNvc3lzdGVtLCBzdXBwb3J0aW5nIHZhcmlvdXMgaW50ZXJmYWNlcyAoZS5nLiwgTVFUVCwgUkVTVCBBUElzLCBTbGFjaywgTWljcm9zb2Z0IFRlYW1zKS4gVGhleSBoYW5kbGUgYXV0aGVudGljYXRpb24sIGF1dGhvcml6YXRpb24sIGFuZCBhY2Nlc3MgY29udHJvbCwgZW5zdXJpbmcgYWdlbnRzIG9ubHkgaW50ZXJhY3Qgd2l0aCBhcHByb3ZlZCByZXNvdXJjZXMuCiogICAqKkludGVsbGlnZW50IERhdGEgTWFuYWdlbWVudDoqKiBUaGUgc3lzdGVtIG1hbmFnZXMgZGF0YSBkZWxpdmVyZWQgdG8gTGFyZ2UgTGFuZ3VhZ2UgTW9kZWxzIChMTE1zKSBhbmQgYWdlbnRzLCBwYXNzaW5nIG9ubHkgcmVsZXZhbnQgaW5mb3JtYXRpb24uIEl0IGVuYWJsZXMgYWdlbnRzIHRvIG1hbmlwdWxhdGUgYW5kIGFnZ3JlZ2F0ZSBkYXRhLCByZWR1Y2luZyByb3VuZHRyaXBzLCBjb3N0cywgYW5kIGluY3JlYXNpbmcgc3BlZWQgYW5kIGFjY3VyYWN5LgoqICAgKipBcmNoaXRlY3RlZCBmb3IgRW50ZXJwcmlzZSBTY2FsZSAoRXZlbnQgTWVzaCk6KiogTGV2ZXJhZ2luZyBTb2xhY2UncyBwcm92ZW4gZXZlbnQtZHJpdmVuIGludGVncmF0aW9uIGFuZCBzdHJlYW1pbmcgcGxhdGZvcm0sIEFnZW50IE1lc2ggcHJvdmlkZXMgZGVjb3VwbGVkLCByZWFsLXRpbWUgY29tbXVuaWNhdGlvbiBhY3Jvc3MgY2xvdWRzIGFuZCBzeXN0ZW1zLiBUaGlzIGVuYWJsZXMgaG9yaXpvbnRhbCBzY2FsaW5nIG9mIGFnZW50cywgZ3JhY2VmdWwgaGFuZGxpbmcgb2Ygc3BlZWQgbWlzbWF0Y2hlcyBhbmQgZmFpbHVyZXMsIGFuZCBjb21wbGV0ZSBvYnNlcnZhYmlsaXR5LgoqICAgKipBSSBTZXJ2aWNlOioqIFByb3ZpZGVzIGFnZW50cyB3aXRoIGFjY2VzcyB0byBMTE1zLCBhbGxvd2luZyB0aGVtIHRvIHJlcXVlc3QgY2FwYWJpbGl0aWVzIGJ5IGZ1bmN0aW9uIG9yIGludGVudCwgZmFjaWxpdGF0aW5nIHRoZSBhZGRpdGlvbiBvZiBuZXcgbW9kZWxzIGFuZCBlbnN1cmluZyBsb2FkIGRpc3RyaWJ1dGlvbi4KKiAgICoqVmlzdWFsaXplcjoqKiBPZmZlcnMgYSBncmFwaGljYWwgZGlzcGxheSBvZiBtZXNzYWdlcyBzZW50IHZpYSB0aGUgZXZlbnQgbWVzaCBmb3IgYmV0dGVyIHVuZGVyc3RhbmRpbmcgYW5kIG1vbml0b3JpbmcuCgoqKkJlbmVmaXRzOioqCgoqICAgKipUaW1lIHRvIElubm92YXRpb246KiogU2ltcGxpZmllcyB0aGUgaW50ZWdyYXRpb24gb2YgbmV3IEFJIGFnZW50cyBhbmQgdGhlIG9yY2hlc3RyYXRpb24gb2YgdGhlaXIgaW50ZXJhY3Rpb25zLgoqICAgKipJbXByb3ZlZCBVc2VyIEV4cGVyaWVuY2U6KiogRW5zdXJlcyBhZ2VudHMgaGF2ZSBhY2Nlc3MgdG8gcmVhbC10aW1lIGRhdGEsIGxlYWRpbmcgdG8gbW9yZSByZXNwb25zaXZlIGFuZCBhY2N1cmF0ZSBpbnRlcmFjdGlvbnMuCiogICAqKlNjYWxhYmlsaXR5ICYgUmVsaWFiaWxpdHk6KiogQWNoaWV2ZWQgdGhyb3VnaCBhc3luY2hyb25vdXMsIGV2ZW50LWRyaXZlbiBjb21tdW5pY2F0aW9ucywgYWxsb3dpbmcgcHJvamVjdHMgdG8gc2NhbGUgZnJvbSBwcm90b3R5cGVzIHRvIHByb2R1Y3Rpb24tZ3JhZGUgc29sdXRpb25zLgoqICAgKipPcGVyYXRpb25hbCBFZmZpY2llbmN5OioqIFN0cmVhbWxpbmVzIGNvbXBsZXggd29ya2Zsb3dzIGFuZCBlbGltaW5hdGVzIG1hbnVhbCBwcm9jZXNzZXMsIGVuaGFuY2luZyB0aGUgcGVyZm9ybWFuY2Ugb2YgQUktYmFzZWQgYXBwbGljYXRpb25zLgoqICAgKipTZWN1cml0eSAmIEdvdmVybmFuY2U6KiogUHJvdmlkZXMgcm9idXN0IGF1dGhlbnRpY2F0aW9uLCBhdXRob3JpemF0aW9uLCBhbmQgcm9sZS1iYXNlZCBhY2Nlc3MgY29udHJvbCwgZW5zdXJpbmcgY29tcGxpYW5jZSBhbmQgc2VjdXJlIG9wZXJhdGlvbnMuCg=="
+                            }
+                        }
+                    ],
+                    "index": 0
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/status/gdk-gateway-1a93ed9a/task-37dc8f0c346740afa7400aae7bd569a6",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "result": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "status": {
+                    "state": "working",
+                    "message": {
+                        "role": "agent",
+                        "parts": [],
+                        "metadata": {
+                            "type": "llm_response",
+                            "data": {
+                                "content": {
+                                    "parts": [
+                                        {
+                                            "text": "The summary of the provided webpage has been generated and is available as an artifact: \u00abartifact_content:solace_agent_mesh_summary.md\u00bb"
+                                        }
+                                    ],
+                                    "role": "model"
+                                },
+                                "partial": false
+                            }
+                        }
+                    },
+                    "timestamp": "2025-08-01T02:27:44.261794+00:00"
+                },
+                "final": true,
+                "metadata": {
+                    "agent_name": "OrchestratorAgent"
+                }
+            }
+        }
+    },
+    {
+        "topic": "eval-5db065b1-ffc8-4d2b-b313-974e2cb3207d/a2a/v1/gateway/response/gdk-gateway-1a93ed9a/task-37dc8f0c346740afa7400aae7bd569a6",
+        "payload": {
+            "jsonrpc": "2.0",
+            "id": "b416e333b146428cbf7ce4002a4d7162",
+            "result": {
+                "id": "task-37dc8f0c346740afa7400aae7bd569a6",
+                "sessionId": "rest-session-b2c4b4bd15b94d409c501e3a19cab484",
+                "status": {
+                    "state": "completed",
+                    "message": {
+                        "role": "agent",
+                        "parts": [
+                            {
+                                "type": "text",
+                                "text": "The summary of the provided webpage has been generated and is available as an artifact: \u00abartifact_content:solace_agent_mesh_summary.md\u00bb"
+                            }
+                        ]
+                    },
+                    "timestamp": "2025-08-01T02:27:44.266551+00:00"
+                },
+                "metadata": {
+                    "agent_name": "OrchestratorAgent",
+                    "produced_artifacts": [
+                        {
+                            "filename": "solace_agent_mesh.md",
+                            "version": 0
+                        },
+                        {
+                            "filename": "solace_agent_mesh.md_extracted_39f03197.txt",
+                            "version": 0
+                        },
+                        {
+                            "filename": "solace_agent_mesh_summary.md",
+                            "version": 0
+                        },
+                        {
+                            "filename": "solace_agent_mesh_summary.md",
+                            "version": 1
+                        }
+                    ]
+                }
+            }
+        }
+    }
+]
